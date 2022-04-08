@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace WendyApp.Shared.Domain
+namespace WendyApp.Server.Models
 {
-    public class Insumo
+    public class InsumoDTO
     {
         public int InsumoId { get; set; }
         public string Nombre { get; set; }
@@ -13,8 +13,8 @@ namespace WendyApp.Shared.Domain
         public string Categoria { get; set; }
         public DateTime FechaCreacion { get; set; }
 
-        public virtual List<Categoria> Categorias { get; set; }
-        public virtual List<Pedido> Pedidos { get; set; }
-        public virtual List<Proveedor> Proveedores { get; set; }
+        public virtual List<CategoriaDTO> Categorias { get; set; }
+        public virtual List<PedidoDTO> Pedidos { get; set; }
+        public virtual List<ProveedorDTO> Proveedores { get; set; }
     }
 }
