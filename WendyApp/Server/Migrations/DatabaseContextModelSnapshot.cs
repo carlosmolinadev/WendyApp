@@ -117,7 +117,7 @@ namespace WendyApp.Server.Migrations
 
                     b.HasIndex("InsumoId");
 
-                    b.ToTable("InsumoCategoria");
+                    b.ToTable("InsumosCategorias");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Pais", b =>
@@ -154,7 +154,7 @@ namespace WendyApp.Server.Migrations
 
                     b.HasIndex("ProveedorId");
 
-                    b.ToTable("PaisProveedor");
+                    b.ToTable("PaisesProveedores");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Pedido", b =>
@@ -212,7 +212,7 @@ namespace WendyApp.Server.Migrations
 
                     b.HasIndex("PedidoId");
 
-                    b.ToTable("PedidoInsumo");
+                    b.ToTable("PedidosInsumos");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Proveedor", b =>
@@ -258,7 +258,7 @@ namespace WendyApp.Server.Migrations
 
                     b.HasIndex("ProveedorId");
 
-                    b.ToTable("ProveedorInsumo");
+                    b.ToTable("ProveedoresInsumos");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Sucursal", b =>
@@ -303,7 +303,7 @@ namespace WendyApp.Server.Migrations
                     b.Property<byte[]>("Password")
                         .HasColumnType("RAW(2000)");
 
-                    b.Property<string>("Role")
+                    b.Property<string>("Rol")
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<int>("SucursalId")

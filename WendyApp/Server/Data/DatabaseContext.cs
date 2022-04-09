@@ -21,7 +21,7 @@ namespace Wendy.Server.Data
 
         public DbSet<PaisProveedor> PaisesProveedores { get; set; }
         public DbSet<PedidoInsumo> PedidosInsumos { get; set; }
-        public DbSet<InsumoCategoria> InsumoCategoria { get; set; }
+        public DbSet<InsumoCategoria> InsumosCategorias { get; set; }
         public DbSet<ProveedorInsumo> ProveedoresInsumos { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder builder)

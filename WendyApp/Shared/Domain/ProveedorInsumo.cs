@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WendyApp.Shared.Domain
 {
+    [Table("ProveedoresInsumos")]
     public class ProveedorInsumo
     {
         public int Id { get; set; }

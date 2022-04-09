@@ -17,7 +17,7 @@ namespace WendyApp.Server.IRepository
         IGenericRepository<Proveedor> Proveedores { get; }
         IGenericRepository<Sucursal> Sucursales { get; }
         IGenericRepository<Usuario> Usuarios { get; }
-        IGenericRepository<InsumoCategoria> InsumoCategoria { get; }
+        IGenericRepository<InsumoCategoria> InsumosCategorias { get; }
         Task Save();
     }
 }

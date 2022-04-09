@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WendyApp.Server.Migrations
 {
-    public partial class Start : Migration
+    public partial class starter : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace WendyApp.Server.Migrations
                 {
                     CategoriaId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    Nombre = table.Column<string>(type: "NVARCHAR2(100)", nullable: true)
+                    Nombre = table.Column<string>(type: "NVARCHAR2(50)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -26,7 +26,7 @@ namespace WendyApp.Server.Migrations
                 {
                     EstadoPedidoId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    Estado = table.Column<string>(type: "NVARCHAR2(100)", nullable: true)
+                    Estado = table.Column<string>(type: "NVARCHAR2(50)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,9 +39,8 @@ namespace WendyApp.Server.Migrations
                 {
                     InsumoId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    Nombre = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
-                    Descripcion = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
-                    Categoria = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
+                    Nombre = table.Column<string>(type: "NVARCHAR2(50)", nullable: true),
+                    Descripcion = table.Column<string>(type: "NVARCHAR2(50)", nullable: true),
                     FechaCreacion = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false)
                 },
                 constraints: table =>
@@ -55,7 +54,7 @@ namespace WendyApp.Server.Migrations
                 {
                     PaisId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    Nombre = table.Column<string>(type: "NVARCHAR2(100)", nullable: true)
+                    Nombre = table.Column<string>(type: "NVARCHAR2(50)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -68,8 +67,8 @@ namespace WendyApp.Server.Migrations
                 {
                     ProveedorId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    Nombre = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
-                    Descripcion = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
+                    Nombre = table.Column<string>(type: "NVARCHAR2(50)", nullable: true),
+                    Descripcion = table.Column<string>(type: "NVARCHAR2(50)", nullable: true),
                     FechaCreacion = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false)
                 },
                 constraints: table =>
@@ -78,7 +77,7 @@ namespace WendyApp.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "InsumoCategorias",
+                name: "InsumosCategorias",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
@@ -88,15 +87,15 @@ namespace WendyApp.Server.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InsumoCategorias", x => x.Id);
+                    table.PrimaryKey("PK_InsumosCategorias", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_InsumoCategorias_Categorias_CategoriaId",
+                        name: "FK_InsumosCategorias_Categorias_CategoriaId",
                         column: x => x.CategoriaId,
                         principalTable: "Categorias",
                         principalColumn: "CategoriaId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InsumoCategorias_Insumos_InsumoId",
+                        name: "FK_InsumosCategorias_Insumos_InsumoId",
                         column: x => x.InsumoId,
                         principalTable: "Insumos",
                         principalColumn: "InsumoId",
@@ -109,9 +108,9 @@ namespace WendyApp.Server.Migrations
                 {
                     SucursalId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    Nombre = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
+                    Nombre = table.Column<string>(type: "NVARCHAR2(50)", nullable: true),
                     FechaCreacion = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
-                    Direccion = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
+                    Direccion = table.Column<string>(type: "NVARCHAR2(50)", nullable: true),
                     PaisId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
@@ -126,7 +125,7 @@ namespace WendyApp.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PaisProveedores",
+                name: "PaisesProveedores",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
@@ -136,15 +135,15 @@ namespace WendyApp.Server.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PaisProveedores", x => x.Id);
+                    table.PrimaryKey("PK_PaisesProveedores", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PaisProveedores_Paises_PaisId",
+                        name: "FK_PaisesProveedores_Paises_PaisId",
                         column: x => x.PaisId,
                         principalTable: "Paises",
                         principalColumn: "PaisId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PaisProveedores_Proveedores_ProveedorId",
+                        name: "FK_PaisesProveedores_Proveedores_ProveedorId",
                         column: x => x.ProveedorId,
                         principalTable: "Proveedores",
                         principalColumn: "ProveedorId",
@@ -152,7 +151,7 @@ namespace WendyApp.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProveedorInsumos",
+                name: "ProveedoresInsumos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
@@ -163,15 +162,15 @@ namespace WendyApp.Server.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProveedorInsumos", x => x.Id);
+                    table.PrimaryKey("PK_ProveedoresInsumos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProveedorInsumos_Insumos_InsumoId",
+                        name: "FK_ProveedoresInsumos_Insumos_InsumoId",
                         column: x => x.InsumoId,
                         principalTable: "Insumos",
                         principalColumn: "InsumoId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProveedorInsumos_Proveedores_ProveedorId",
+                        name: "FK_ProveedoresInsumos_Proveedores_ProveedorId",
                         column: x => x.ProveedorId,
                         principalTable: "Proveedores",
                         principalColumn: "ProveedorId",
@@ -220,10 +219,10 @@ namespace WendyApp.Server.Migrations
                 {
                     UsuarioId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    Nickname = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
-                    Email = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
-                    Password = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
-                    Role = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
+                    Nickname = table.Column<string>(type: "NVARCHAR2(50)", nullable: true),
+                    Email = table.Column<string>(type: "NVARCHAR2(50)", nullable: true),
+                    Password = table.Column<byte[]>(type: "RAW(50)", nullable: true),
+                    Rol = table.Column<string>(type: "NVARCHAR2(50)", nullable: true),
                     SucursalId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
@@ -244,7 +243,7 @@ namespace WendyApp.Server.Migrations
                     Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     FechaCreacion = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
-                    Descripcion = table.Column<string>(type: "NVARCHAR2(100)", nullable: true),
+                    Descripcion = table.Column<string>(type: "NVARCHAR2(50)", nullable: true),
                     PedidoId = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     EstadoPedidosId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
@@ -266,7 +265,7 @@ namespace WendyApp.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PedidoInsumos",
+                name: "PedidosInsumos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
@@ -276,15 +275,15 @@ namespace WendyApp.Server.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PedidoInsumos", x => x.Id);
+                    table.PrimaryKey("PK_PedidosInsumos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PedidoInsumos_Insumos_InsumoId",
+                        name: "FK_PedidosInsumos_Insumos_InsumoId",
                         column: x => x.InsumoId,
                         principalTable: "Insumos",
                         principalColumn: "InsumoId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PedidoInsumos_Pedidos_PedidoId",
+                        name: "FK_PedidosInsumos_Pedidos_PedidoId",
                         column: x => x.PedidoId,
                         principalTable: "Pedidos",
                         principalColumn: "PedidoId",
@@ -302,34 +301,24 @@ namespace WendyApp.Server.Migrations
                 column: "PedidoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InsumoCategorias_CategoriaId",
-                table: "InsumoCategorias",
+                name: "IX_InsumosCategorias_CategoriaId",
+                table: "InsumosCategorias",
                 column: "CategoriaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InsumoCategorias_InsumoId",
-                table: "InsumoCategorias",
+                name: "IX_InsumosCategorias_InsumoId",
+                table: "InsumosCategorias",
                 column: "InsumoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PaisProveedores_PaisId",
-                table: "PaisProveedores",
+                name: "IX_PaisesProveedores_PaisId",
+                table: "PaisesProveedores",
                 column: "PaisId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PaisProveedores_ProveedorId",
-                table: "PaisProveedores",
+                name: "IX_PaisesProveedores_ProveedorId",
+                table: "PaisesProveedores",
                 column: "ProveedorId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PedidoInsumos_InsumoId",
-                table: "PedidoInsumos",
-                column: "InsumoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PedidoInsumos_PedidoId",
-                table: "PedidoInsumos",
-                column: "PedidoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Pedidos_EstadoPedidosId",
@@ -347,13 +336,23 @@ namespace WendyApp.Server.Migrations
                 column: "SucursalId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProveedorInsumos_InsumoId",
-                table: "ProveedorInsumos",
+                name: "IX_PedidosInsumos_InsumoId",
+                table: "PedidosInsumos",
                 column: "InsumoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProveedorInsumos_ProveedorId",
-                table: "ProveedorInsumos",
+                name: "IX_PedidosInsumos_PedidoId",
+                table: "PedidosInsumos",
+                column: "PedidoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProveedoresInsumos_InsumoId",
+                table: "ProveedoresInsumos",
+                column: "InsumoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProveedoresInsumos_ProveedorId",
+                table: "ProveedoresInsumos",
                 column: "ProveedorId");
 
             migrationBuilder.CreateIndex(
@@ -373,16 +372,16 @@ namespace WendyApp.Server.Migrations
                 name: "HistorialPedidos");
 
             migrationBuilder.DropTable(
-                name: "InsumoCategorias");
+                name: "InsumosCategorias");
 
             migrationBuilder.DropTable(
-                name: "PaisProveedores");
+                name: "PaisesProveedores");
 
             migrationBuilder.DropTable(
-                name: "PedidoInsumos");
+                name: "PedidosInsumos");
 
             migrationBuilder.DropTable(
-                name: "ProveedorInsumos");
+                name: "ProveedoresInsumos");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");

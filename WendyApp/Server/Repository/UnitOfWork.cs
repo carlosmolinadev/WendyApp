@@ -45,7 +45,7 @@ namespace WendyApp.Server.Repository
 
         public IGenericRepository<Usuario> Usuarios => _usuarios ??= new GenericRepository<Usuario>(_context);
 
-        public IGenericRepository<InsumoCategoria> InsumoCategoria => _insumosCategorias ??= new GenericRepository<InsumoCategoria>(_context);
+        public IGenericRepository<InsumoCategoria> InsumosCategorias => _insumosCategorias ??= new GenericRepository<InsumoCategoria>(_context);
 
         public void Dispose()
         {

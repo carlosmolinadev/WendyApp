@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace WendyApp.Server.Models
 {
@@ -6,6 +7,7 @@ namespace WendyApp.Server.Models
     {
         public int CategoriaId { get; set; }
         public string Nombre { get; set; }
-        public virtual List<InsumoCategoriaDTO> Insumos { get; set; }
+        [JsonIgnore]
+        public virtual List<InsumoDTO> Insumos { get; set; }
     }
 }

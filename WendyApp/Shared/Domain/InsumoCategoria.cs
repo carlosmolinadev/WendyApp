@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WendyApp.Shared.Domain
 {
+    [Table("InsumosCategorias")]
     public class InsumoCategoria
     {
         public int Id { get; set; }
@@ -17,6 +18,6 @@ namespace WendyApp.Shared.Domain
         public int CategoriaId { get; set; }
 
         public virtual List<Categoria> Categorias { get; set; }
-        public virtual List<Insumo> Insumos { get; set; }
+        public virtual Insumo Insumos { get; set; }
     }
 }

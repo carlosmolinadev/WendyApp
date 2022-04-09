@@ -49,11 +49,13 @@ namespace WendyApp.Server.Controllers
         public async Task<IActionResult> GetCategoria(int id)
         {
             //throw new Exception("Error message");
-            //var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumos));
-            var categoria = await _unitOfWork.InsumoCategoria.Get(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumos));
+            var categoria = await _unitOfWork.InsumosCategorias.GetAll(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumos));
+            //var categoria = await _unitOfWork.InsumosCategorias.Get(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumos));
             //var categoria = await _unitOfWork.InsumosCategorias.Get(q => q.CategoriaId == id);
-            var result = _mapper.Map<InsumoCategoria>(categoria);
+            var result = _mapper.Map<List<InsumoCategoriaDTO>>(categoria);
 
+            //var list = new List<InsumoDTO>();
+            //list.Add(x.Insumos);
             return Ok(result);
         }
 
