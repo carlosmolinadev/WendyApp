@@ -15,13 +15,13 @@ namespace WendyApp.Server.Controllers
     
     [ApiController]
     [Route("api/[controller]")]
-    public class SucursalController : ControllerBase
+    public class CategoriaController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger<SucursalController> _logger;
+        private readonly ILogger<CategoriaController> _logger;
         private readonly IMapper _mapper;
 
-        public SucursalController(IUnitOfWork unitOfWork, ILogger<SucursalController> logger,
+        public CategoriaController(IUnitOfWork unitOfWork, ILogger<CategoriaController> logger,
             IMapper mapper)
         {
             _unitOfWork = unitOfWork;
@@ -35,22 +35,25 @@ namespace WendyApp.Server.Controllers
         ////[HttpCacheValidation(MustRevalidate = false)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetSucursales()
+        public async Task<IActionResult> GetCategorias()
         {
-            var sucursales = await _unitOfWork.Sucursales.GetAll();
-            var results = _mapper.Map<List<SucursalDTO>>(sucursales);
+            var categorias = await _unitOfWork.Categorias.GetAll();
+            var results = _mapper.Map<List<CategoriaDTO>>(categorias);
             return Ok(results);
         }
 
-        [HttpGet("{id:int}", Name = "GetSucursal")]
+        [HttpGet("{id:int}", Name = "GetCategoria")]
         ////[ResponseCache(CacheProfileName = "120SecondsDuration")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetSucursal(int id)
+        public async Task<IActionResult> GetCategoria(int id)
         {
             //throw new Exception("Error message");
-            var sucursal = await _unitOfWork.Sucursales.Get(q => q.SucursalId == id);
-            var result = _mapper.Map<SucursalDTO>(sucursal);
+            //var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumos));
+            var categoria = await _unitOfWork.InsumoCategoria.Get(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumos));
+            //var categoria = await _unitOfWork.InsumosCategorias.Get(q => q.CategoriaId == id);
+            var result = _mapper.Map<InsumoCategoria>(categoria);
+
             return Ok(result);
         }
 
@@ -59,19 +62,19 @@ namespace WendyApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateSucursal([FromBody] SucursalDTO sucursalDTO)
+        public async Task<IActionResult> CreateCategoria([FromBody] CategoriaDTO categoriaDTO)
         {
             if (!ModelState.IsValid)
             {
-                _logger.LogError($"Invalid POST attempt in {nameof(CreateSucursal)}");
+                _logger.LogError($"Invalid POST attempt in {nameof(CreateCategoria)}");
                 return BadRequest(ModelState);
             }
 
-            var sucursal = _mapper.Map<Sucursal>(sucursalDTO);
-            await _unitOfWork.Sucursales.Insert(sucursal);
+            var categoria = _mapper.Map<Categoria>(categoriaDTO);
+            await _unitOfWork.Categorias.Insert(categoria);
             await _unitOfWork.Save();
 
-            return CreatedAtRoute("GetSucursal", new { id = sucursal.SucursalId }, sucursal);
+            return CreatedAtRoute("GetCategoria", new { id = categoria.CategoriaId }, categoria);
 
         }
 
@@ -80,23 +83,23 @@ namespace WendyApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> UpdateSucursal(int id, [FromBody] SucursalDTO sucursalDTO)
+        public async Task<IActionResult> UpdateCategoria(int id, [FromBody] CategoriaDTO categoriaDTO)
         {
             if (!ModelState.IsValid || id < 1)
             {
-                _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateSucursal)}");
+                _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateCategoria)}");
                 return BadRequest(ModelState);
             }
 
-            var sucursal = await _unitOfWork.Sucursales.Get(q => q.SucursalId == id);
-            if (sucursal == null)
+            var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id);
+            if (categoria == null)
             {
-                _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateSucursal)}");
+                _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateCategoria)}");
                 return BadRequest("Submitted data is invalid");
             }
 
-            _mapper.Map(sucursalDTO, sucursal);
-            _unitOfWork.Sucursales.Update(sucursal);
+            _mapper.Map(categoriaDTO, categoria);
+            _unitOfWork.Categorias.Update(categoria);
             await _unitOfWork.Save();
 
             return NoContent();
@@ -108,22 +111,22 @@ namespace WendyApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> DeleteSucursal(int id)
+        public async Task<IActionResult> DeleteCategoria(int id)
         {
             if (id < 1)
             {
-                _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteSucursal)}");
+                _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteCategoria)}");
                 return BadRequest();
             }
 
-            var sucursal = await _unitOfWork.Sucursales.Get(q => q.SucursalId == id);
-            if (sucursal == null)
+            var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id);
+            if (categoria == null)
             {
-                _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteSucursal)}");
+                _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteCategoria)}");
                 return BadRequest("Submitted data is invalid");
             }
 
-            await _unitOfWork.Sucursales.Delete(id);
+            await _unitOfWork.Categorias.Delete(id);
             await _unitOfWork.Save();
 
             return NoContent();

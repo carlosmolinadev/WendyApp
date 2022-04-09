@@ -10,11 +10,10 @@ namespace WendyApp.Shared.Domain
         public int InsumoId { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public string Categoria { get; set; }
         public DateTime FechaCreacion { get; set; }
 
-        public virtual List<Categoria> Categorias { get; set; }
-        public virtual List<Pedido> Pedidos { get; set; }
-        public virtual List<Proveedor> Proveedores { get; set; }
+        public virtual List<InsumoCategoria> Categorias { get; set; }
+        public virtual List<PedidoInsumo> Pedidos { get; set; }
+        public virtual List<ProveedorInsumo> Proveedores { get; set; }
     }
 }

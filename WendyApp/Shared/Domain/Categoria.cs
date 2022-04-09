@@ -10,6 +10,6 @@ namespace WendyApp.Shared.Domain
         public int CategoriaId { get; set; }
         public string Nombre { get; set; }
 
-        public virtual List<Categoria> Categorias { get; set; }
+        public virtual List<InsumoCategoria> Insumos { get; set; }
     }
 }

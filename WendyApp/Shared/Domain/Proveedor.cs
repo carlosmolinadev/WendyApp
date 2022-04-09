@@ -13,8 +13,8 @@ namespace WendyApp.Shared.Domain
         public string Descripcion { get; set; }
         public DateTime FechaCreacion { get; set; }
 
-        public virtual List<Pais> Paises { get; set; }
+        public virtual List<PaisProveedor> Paises { get; set; }
         public virtual List<Pedido> Pedidos { get; set; }
-        public virtual List<Insumo> Insumos { get; set; }
+        public virtual List<ProveedorInsumo> Insumos { get; set; }
     }
 }

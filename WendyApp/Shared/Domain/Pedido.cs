@@ -15,17 +15,17 @@ namespace WendyApp.Shared.Domain
 
         [ForeignKey(nameof(Proveedor))]
         public int ProveedorId { get; set; }
+        public Proveedor Proveedor { get; set; }
 
         [ForeignKey(nameof(Sucursal))]
         public int SucursalId { get; set; }
+        public Sucursal Sucursal { get; set; }
 
         [ForeignKey(nameof(EstadoPedido))]
         public int EstadoPedidosId { get; set; }
-
-        public  Proveedor Proveedor { get; set; }
-        public  Sucursal Sucursal { get; set; }
         public EstadoPedido EstadoPedidos { get; set; }
+
         public virtual List<HistorialPedido> HistorialPedidos { get; set; }
-        public virtual List<Insumo> Insumos { get; set; }
+        public virtual List<PedidoInsumo> Insumos { get; set; }
     }
 }

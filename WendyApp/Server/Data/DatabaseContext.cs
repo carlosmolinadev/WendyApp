@@ -11,13 +11,18 @@ namespace Wendy.Server.Data
         {}
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<EstadoPedido> EstadoPedidos { get; set; }
-        public DbSet<HistorialPedidoDTO> HistorialPedidos { get; set; }
-        public DbSet<InsumoDTO> Insumos { get; set; }
+        public DbSet<HistorialPedido> HistorialPedidos { get; set; }
+        public DbSet<Insumo> Insumos { get; set; }
         public DbSet<Pais> Paises { get; set; }
-        public DbSet<PedidoDTO> Pedidos { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Proveedor> Proveedores { get; set; }
         public DbSet<Sucursal> Sucursales { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<PaisProveedor> PaisesProveedores { get; set; }
+        public DbSet<PedidoInsumo> PedidosInsumos { get; set; }
+        public DbSet<InsumoCategoria> InsumoCategoria { get; set; }
+        public DbSet<ProveedorInsumo> ProveedoresInsumos { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder builder)
         //{

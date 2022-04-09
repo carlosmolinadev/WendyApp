@@ -21,6 +21,7 @@ namespace WendyApp.Server.Repository
         private IGenericRepository<Proveedor> _proveedores;
         private IGenericRepository<Sucursal> _sucursales;
         private IGenericRepository<Usuario> _usuarios;
+        private IGenericRepository<InsumoCategoria> _insumosCategorias;
 
         public UnitOfWork(DatabaseContext context)
         {
@@ -43,6 +44,8 @@ namespace WendyApp.Server.Repository
         public IGenericRepository<Sucursal> Sucursales => _sucursales ??= new GenericRepository<Sucursal>(_context);
 
         public IGenericRepository<Usuario> Usuarios => _usuarios ??= new GenericRepository<Usuario>(_context);
+
+        public IGenericRepository<InsumoCategoria> InsumoCategoria => _insumosCategorias ??= new GenericRepository<InsumoCategoria>(_context);
 
         public void Dispose()
         {
