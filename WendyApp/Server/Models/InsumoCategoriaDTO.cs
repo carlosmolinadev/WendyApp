@@ -1,9 +1,9 @@
-﻿namespace WendyApp.Server.Models
+﻿using System.Collections.Generic;
+
+namespace WendyApp.Server.Models
 {
     public class InsumoCategoriaDTO
     {
-        public int Id { get; set; }
-
         public int InsumoId { get; set; }
 
         public int CategoriaId { get; set; }

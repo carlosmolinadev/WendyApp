@@ -10,7 +10,7 @@ using Wendy.Server.Data;
 namespace WendyApp.Server.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220409012859_starter")]
+    [Migration("20220409072845_starter")]
     partial class starter
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -102,22 +102,15 @@ namespace WendyApp.Server.Migrations
 
             modelBuilder.Entity("WendyApp.Shared.Domain.InsumoCategoria", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)")
-                        .HasAnnotation("Oracle:ValueGenerationStrategy", OracleValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("InsumoId")
+                        .HasColumnType("NUMBER(10)");
 
                     b.Property<int>("CategoriaId")
                         .HasColumnType("NUMBER(10)");
 
-                    b.Property<int>("InsumoId")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.HasKey("Id");
+                    b.HasKey("InsumoId", "CategoriaId");
 
                     b.HasIndex("CategoriaId");
-
-                    b.HasIndex("InsumoId");
 
                     b.ToTable("InsumosCategorias");
                 });
@@ -139,20 +132,13 @@ namespace WendyApp.Server.Migrations
 
             modelBuilder.Entity("WendyApp.Shared.Domain.PaisProveedor", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)")
-                        .HasAnnotation("Oracle:ValueGenerationStrategy", OracleValueGenerationStrategy.IdentityColumn);
-
                     b.Property<int>("PaisId")
                         .HasColumnType("NUMBER(10)");
 
                     b.Property<int>("ProveedorId")
                         .HasColumnType("NUMBER(10)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("PaisId");
+                    b.HasKey("PaisId", "ProveedorId");
 
                     b.HasIndex("ProveedorId");
 
@@ -197,20 +183,13 @@ namespace WendyApp.Server.Migrations
 
             modelBuilder.Entity("WendyApp.Shared.Domain.PedidoInsumo", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)")
-                        .HasAnnotation("Oracle:ValueGenerationStrategy", OracleValueGenerationStrategy.IdentityColumn);
-
                     b.Property<int>("InsumoId")
                         .HasColumnType("NUMBER(10)");
 
                     b.Property<int>("PedidoId")
                         .HasColumnType("NUMBER(10)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("InsumoId");
+                    b.HasKey("InsumoId", "PedidoId");
 
                     b.HasIndex("PedidoId");
 
@@ -240,10 +219,8 @@ namespace WendyApp.Server.Migrations
 
             modelBuilder.Entity("WendyApp.Shared.Domain.ProveedorInsumo", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)")
-                        .HasAnnotation("Oracle:ValueGenerationStrategy", OracleValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("ProveedorId")
+                        .HasColumnType("NUMBER(10)");
 
                     b.Property<int>("InsumoId")
                         .HasColumnType("NUMBER(10)");
@@ -251,14 +228,9 @@ namespace WendyApp.Server.Migrations
                     b.Property<double>("Preciocompra")
                         .HasColumnType("BINARY_DOUBLE");
 
-                    b.Property<int>("ProveedorId")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.HasKey("Id");
+                    b.HasKey("ProveedorId", "InsumoId");
 
                     b.HasIndex("InsumoId");
-
-                    b.HasIndex("ProveedorId");
 
                     b.ToTable("ProveedoresInsumos");
                 });

@@ -42,6 +42,7 @@ namespace WendyApp.Server.Repository
                 query = include(query);
             }
 
+
             return await query.AsNoTracking().FirstOrDefaultAsync(expression);
         }
 

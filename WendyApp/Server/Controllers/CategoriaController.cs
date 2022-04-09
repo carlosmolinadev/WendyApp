@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using WendyApp.Server.IRepository;
 using WendyApp.Server.Models;
@@ -49,14 +50,29 @@ namespace WendyApp.Server.Controllers
         public async Task<IActionResult> GetCategoria(int id)
         {
             //throw new Exception("Error message");
-            var categoria = await _unitOfWork.InsumosCategorias.GetAll(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumos));
-            //var categoria = await _unitOfWork.InsumosCategorias.Get(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumos));
+            var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id);
+            var insumosCategorias = await _unitOfWork.InsumosCategorias.GetAll(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumo));
+            var insumos = new List<InsumoDTO>();
+
+            foreach (var item in insumosCategorias)
+            {
+                var insumo = _mapper.Map<InsumoDTO>(item.Insumo);
+                insumos.Add(insumo);
+            }
+
+            var categoriaDTO = new CategoriaDTO { CategoriaId = categoria.CategoriaId, Nombre = categoria.Nombre, Insumos = insumos };
+
+            
+            //var categoria = await _unitOfWork.InsumosCategorias.GetAll(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumo));
+            //var insumos = await _unitOfWork.InsumosCategorias.GetAll(q => q.InsumoId == c);
+
             //var categoria = await _unitOfWork.InsumosCategorias.Get(q => q.CategoriaId == id);
-            var result = _mapper.Map<List<InsumoCategoriaDTO>>(categoria);
+
+            //var result = _mapper.Map<InsumoCategoriaDTO>(insumosCategorias);
 
             //var list = new List<InsumoDTO>();
             //list.Add(x.Insumos);
-            return Ok(result);
+            return Ok(categoriaDTO);
         }
 
         //[Authorize(Roles = "Administrator")]

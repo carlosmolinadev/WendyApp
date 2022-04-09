@@ -11,14 +11,13 @@ namespace WendyApp.Server.Models
         public int InsumoId { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public string Categoria { get; set; }
         public DateTime FechaCreacion { get; set; }
 
-        [JsonIgnore]
-        public virtual List<CategoriaDTO> Categorias { get; set; }
-        [JsonIgnore]
-        public virtual List<PedidoDTO> Pedidos { get; set; }
-        [JsonIgnore]
-        public virtual List<ProveedorDTO> Proveedores { get; set; }
+        
+        public virtual List<InsumoCategoriaDTO> Categorias { get; set; }
+        
+        public virtual List<PedidoInsumoDTO> Pedidos { get; set; }
+        
+        public virtual List<ProveedorInsumoDTO> Proveedores { get; set; }
     }
 }
