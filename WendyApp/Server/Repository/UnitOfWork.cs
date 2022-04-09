@@ -11,19 +11,41 @@ namespace WendyApp.Server.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DatabaseContext _context;
+        
+        private IGenericRepository<Categoria> _categorias;
+        private IGenericRepository<EstadoPedido> _estadoPedidos;
+        private IGenericRepository<HistorialPedido> _historialPedidos;
+        private IGenericRepository<Insumo> _insumos;
         private IGenericRepository<Pais> _paises;
+        private IGenericRepository<Pedido> _pedidos;
+        private IGenericRepository<Proveedor> _proveedores;
         private IGenericRepository<Sucursal> _sucursales;
         private IGenericRepository<Usuario> _usuarios;
+        private IGenericRepository<InsumoCategoria> _insumosCategorias;
 
         public UnitOfWork(DatabaseContext context)
         {
             _context = context;
         }
+        public IGenericRepository<Categoria> Categorias => _categorias ??= new GenericRepository<Categoria>(_context);
+
+        public IGenericRepository<EstadoPedido> EstadoPedidos => _estadoPedidos ??= new GenericRepository<EstadoPedido>(_context);
+
+        public IGenericRepository<HistorialPedido> HistorialPedidos => _historialPedidos ??= new GenericRepository<HistorialPedido>(_context);
+
+        public IGenericRepository<Insumo> Insumos => _insumos ??= new GenericRepository<Insumo>(_context);
+
         public IGenericRepository<Pais> Paises => _paises ??= new GenericRepository<Pais>(_context);
+
+        public IGenericRepository<Pedido> Pedidos => _pedidos ??= new GenericRepository<Pedido>(_context);
+
+        public IGenericRepository<Proveedor> Proveedores => _proveedores ??= new GenericRepository<Proveedor>(_context);
 
         public IGenericRepository<Sucursal> Sucursales => _sucursales ??= new GenericRepository<Sucursal>(_context);
 
         public IGenericRepository<Usuario> Usuarios => _usuarios ??= new GenericRepository<Usuario>(_context);
+
+        public IGenericRepository<InsumoCategoria> InsumosCategorias => _insumosCategorias ??= new GenericRepository<InsumoCategoria>(_context);
 
         public void Dispose()
         {

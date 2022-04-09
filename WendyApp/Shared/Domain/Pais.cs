@@ -11,7 +11,7 @@ namespace WendyApp.Shared.Domain
 
         public int PaisId { get; set; }
         public string Nombre { get; set; }
-        public virtual List<PaisProveedor> PaisProveedor{ get; set; }
+        public virtual List<PaisProveedor> Proveedores { get; set; }
         public virtual List<Sucursal> Sucursales { get; set; }
     }
 }

@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
-namespace WendyApp.Shared.Domain
+namespace WendyApp.Server.Models
 {
-    public class Pedido
+    public class PedidoDTO
     {
         public int PedidoId { get; set; }
         public double CostoTransporte { get; set; } = 0;
@@ -15,17 +15,17 @@ namespace WendyApp.Shared.Domain
 
         [ForeignKey(nameof(Proveedor))]
         public int ProveedorId { get; set; }
-        public Proveedor Proveedor { get; set; }
 
         [ForeignKey(nameof(Sucursal))]
         public int SucursalId { get; set; }
-        public Sucursal Sucursal { get; set; }
 
-        [ForeignKey(nameof(EstadoPedido))]
+        [ForeignKey(nameof(EstadoPedidoDTO))]
         public int EstadoPedidosId { get; set; }
-        public EstadoPedido EstadoPedidos { get; set; }
 
-        public virtual List<HistorialPedido> HistorialPedidos { get; set; }
-        public virtual List<PedidoInsumo> Insumos { get; set; }
+        public  ProveedorDTO Proveedor { get; set; }
+        public  SucursalDTO Sucursal { get; set; }
+        public EstadoPedidoDTO EstadoPedidos { get; set; }
+        public virtual List<HistorialPedidoDTO> HistorialPedidos { get; set; }
+        public virtual List<InsumoDTO> Insumos { get; set; }
     }
 }

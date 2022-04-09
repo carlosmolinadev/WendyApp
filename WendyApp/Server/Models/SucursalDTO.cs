@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace WendyApp.Server.Models
 {
@@ -10,6 +11,8 @@ namespace WendyApp.Server.Models
 
         [Required]
         public string Nombre { get; set; }
+
+        [Required]
         public DateTime FechaCreacion { get; set; }
 
         [Required]
@@ -18,8 +21,7 @@ namespace WendyApp.Server.Models
         [Required]
         public int PaisId { get; set; }
 
+        [JsonIgnore]
         public virtual PaisDTO pais { get; set; }
-        //public virtual List<Pedido> Pedidos { get; set; }
-        //public virtual List<Usuario> Usuarios { get; set; }
     }
 }

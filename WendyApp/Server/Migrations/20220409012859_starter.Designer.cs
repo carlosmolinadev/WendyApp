@@ -10,8 +10,8 @@ using Wendy.Server.Data;
 namespace WendyApp.Server.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220408032518_UpdatedUser")]
-    partial class UpdatedUser
+    [Migration("20220409012859_starter")]
+    partial class starter
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -86,9 +86,6 @@ namespace WendyApp.Server.Migrations
                         .HasColumnType("NUMBER(10)")
                         .HasAnnotation("Oracle:ValueGenerationStrategy", OracleValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Categoria")
-                        .HasColumnType("NVARCHAR2(2000)");
-
                     b.Property<string>("Descripcion")
                         .HasColumnType("NVARCHAR2(2000)");
 
@@ -122,7 +119,7 @@ namespace WendyApp.Server.Migrations
 
                     b.HasIndex("InsumoId");
 
-                    b.ToTable("InsumoCategorias");
+                    b.ToTable("InsumosCategorias");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Pais", b =>
@@ -159,7 +156,7 @@ namespace WendyApp.Server.Migrations
 
                     b.HasIndex("ProveedorId");
 
-                    b.ToTable("PaisProveedores");
+                    b.ToTable("PaisesProveedores");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Pedido", b =>
@@ -217,7 +214,7 @@ namespace WendyApp.Server.Migrations
 
                     b.HasIndex("PedidoId");
 
-                    b.ToTable("PedidoInsumos");
+                    b.ToTable("PedidosInsumos");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Proveedor", b =>
@@ -263,7 +260,7 @@ namespace WendyApp.Server.Migrations
 
                     b.HasIndex("ProveedorId");
 
-                    b.ToTable("ProveedorInsumos");
+                    b.ToTable("ProveedoresInsumos");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Sucursal", b =>
@@ -308,7 +305,7 @@ namespace WendyApp.Server.Migrations
                     b.Property<byte[]>("Password")
                         .HasColumnType("RAW(2000)");
 
-                    b.Property<string>("Role")
+                    b.Property<string>("Rol")
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<int>("SucursalId")
@@ -343,13 +340,13 @@ namespace WendyApp.Server.Migrations
             modelBuilder.Entity("WendyApp.Shared.Domain.InsumoCategoria", b =>
                 {
                     b.HasOne("WendyApp.Shared.Domain.Categoria", "Categoria")
-                        .WithMany("InsumoCategoria")
+                        .WithMany("Insumos")
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WendyApp.Shared.Domain.Insumo", "Insumo")
-                        .WithMany("InsumoCategoria")
+                        .WithMany("Categorias")
                         .HasForeignKey("InsumoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -362,13 +359,13 @@ namespace WendyApp.Server.Migrations
             modelBuilder.Entity("WendyApp.Shared.Domain.PaisProveedor", b =>
                 {
                     b.HasOne("WendyApp.Shared.Domain.Pais", "Pais")
-                        .WithMany("PaisProveedor")
+                        .WithMany("Proveedores")
                         .HasForeignKey("PaisId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WendyApp.Shared.Domain.Proveedor", "Proveedor")
-                        .WithMany("PaisProveedor")
+                        .WithMany("Paises")
                         .HasForeignKey("ProveedorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -408,13 +405,13 @@ namespace WendyApp.Server.Migrations
             modelBuilder.Entity("WendyApp.Shared.Domain.PedidoInsumo", b =>
                 {
                     b.HasOne("WendyApp.Shared.Domain.Insumo", "Insumo")
-                        .WithMany("PedidoInsumos")
+                        .WithMany("Pedidos")
                         .HasForeignKey("InsumoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WendyApp.Shared.Domain.Pedido", "Pedido")
-                        .WithMany("PedidoInsumos")
+                        .WithMany("Insumos")
                         .HasForeignKey("PedidoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -427,13 +424,13 @@ namespace WendyApp.Server.Migrations
             modelBuilder.Entity("WendyApp.Shared.Domain.ProveedorInsumo", b =>
                 {
                     b.HasOne("WendyApp.Shared.Domain.Insumo", "Insumo")
-                        .WithMany("ProveedorInsumos")
+                        .WithMany("Proveedores")
                         .HasForeignKey("InsumoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WendyApp.Shared.Domain.Proveedor", "Proveedor")
-                        .WithMany("ProveedorInsumos")
+                        .WithMany("Insumos")
                         .HasForeignKey("ProveedorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -467,7 +464,7 @@ namespace WendyApp.Server.Migrations
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Categoria", b =>
                 {
-                    b.Navigation("InsumoCategoria");
+                    b.Navigation("Insumos");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.EstadoPedido", b =>
@@ -479,16 +476,16 @@ namespace WendyApp.Server.Migrations
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Insumo", b =>
                 {
-                    b.Navigation("InsumoCategoria");
+                    b.Navigation("Categorias");
 
-                    b.Navigation("PedidoInsumos");
+                    b.Navigation("Pedidos");
 
-                    b.Navigation("ProveedorInsumos");
+                    b.Navigation("Proveedores");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Pais", b =>
                 {
-                    b.Navigation("PaisProveedor");
+                    b.Navigation("Proveedores");
 
                     b.Navigation("Sucursales");
                 });
@@ -497,16 +494,16 @@ namespace WendyApp.Server.Migrations
                 {
                     b.Navigation("HistorialPedidos");
 
-                    b.Navigation("PedidoInsumos");
+                    b.Navigation("Insumos");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Proveedor", b =>
                 {
-                    b.Navigation("PaisProveedor");
+                    b.Navigation("Insumos");
+
+                    b.Navigation("Paises");
 
                     b.Navigation("Pedidos");
-
-                    b.Navigation("ProveedorInsumos");
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Sucursal", b =>

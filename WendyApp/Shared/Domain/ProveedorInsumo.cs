@@ -6,18 +6,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WendyApp.Shared.Domain
 {
+    [Table("ProveedoresInsumos")]
     public class ProveedorInsumo
     {
         public int Id { get; set; }
 
         [ForeignKey(nameof(Proveedor))]
         public int ProveedorId { get; set; }
+        public virtual Proveedor Proveedor { get; set; }
 
         [ForeignKey(nameof(Insumo))]
         public int InsumoId { get; set; }
-        public double Preciocompra { get; set; }
-
         public virtual Insumo Insumo { get; set; }
-        public virtual Proveedor Proveedor { get; set; }
+
+        public double Preciocompra { get; set; }
     }
 }
