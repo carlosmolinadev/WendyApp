@@ -11,8 +11,10 @@ namespace WendyApp.Shared.Domain
         public int Id { get; set; }
         public DateTime FechaCreacion { get; set; }
         public string Descripcion { get; set; }
+       
         [ForeignKey(nameof(Pedido))]
         public int PedidoId { get; set; }
+
         [ForeignKey(nameof(EstadoPedido))]
         public int EstadoPedidosId { get; set; }
 

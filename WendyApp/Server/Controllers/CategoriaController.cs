@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using WendyApp.Server.IRepository;
 using WendyApp.Server.Models;
@@ -49,7 +47,6 @@ namespace WendyApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetCategoria(int id)
         {
-            //throw new Exception("Error message");
             var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id);
             var insumosCategorias = await _unitOfWork.InsumosCategorias.GetAll(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumo));
             var insumos = new List<InsumoDTO>();

@@ -3,10 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using WendyApp.Server.IRepository;
 using WendyApp.Server.Models;
@@ -14,17 +11,15 @@ using WendyApp.Shared.Domain;
 
 namespace WendyApp.Server.Controllers
 {
-    
     [ApiController]
     [Route("api/[controller]")]
-    public class UsuarioController : ControllerBase
+    public class PedidoController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger<UsuarioController> _logger;
+        private readonly ILogger<PedidoController> _logger;
         private readonly IMapper _mapper;
 
-
-        public UsuarioController(IUnitOfWork unitOfWork, ILogger<UsuarioController> logger,
+        public PedidoController(IUnitOfWork unitOfWork, ILogger<PedidoController> logger,
             IMapper mapper)
         {
             _unitOfWork = unitOfWork;
@@ -38,22 +33,22 @@ namespace WendyApp.Server.Controllers
         ////[HttpCacheValidation(MustRevalidate = false)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetUsuarios()
+        public async Task<IActionResult> GetPedidos()
         {
-            var usuarios = await _unitOfWork.Usuarios.GetAll();
-            var results = _mapper.Map<List<UsuarioDTO>>(usuarios);
+            var pedidos = await _unitOfWork.Pedidos.GetAll();
+            var results = _mapper.Map<List<PedidoDTO>>(pedidos);
             return Ok(results);
         }
 
-        [HttpGet("{id:int}", Name = "GetUsuario")]
+        [HttpGet("{id:int}", Name = "GetPedido")]
         ////[ResponseCache(CacheProfileName = "120SecondsDuration")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetUsuario(int id)
+        public async Task<IActionResult> GetPedido(int id)
         {
             //throw new Exception("Error message");
-            var usuario = await _unitOfWork.Usuarios.Get(q => q.UsuarioId == id, include: q => q.Include(x => x.Sucursal));
-            var result = _mapper.Map<UsuarioDTO>(usuario);
+            var pedido = await _unitOfWork.Pedidos.Get(q => q.PedidoId == id); //, include: q => q.Include(x => x.Sucursales)
+            var result = _mapper.Map<PedidoDTO>(pedido);
             return Ok(result);
         }
 
@@ -62,23 +57,19 @@ namespace WendyApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateUsuario([FromBody] UsuarioDTO usuarioDTO)
+        public async Task<IActionResult> CreatePedido([FromBody] PedidoDTO pedidoDTO)
         {
             if (!ModelState.IsValid)
             {
-                _logger.LogError($"Invalid POST attempt in {nameof(CreateUsuario)}");
+                _logger.LogError($"Invalid POST attempt in {nameof(CreatePedido)}");
                 return BadRequest(ModelState);
             }
 
-            using var hmac = new HMACSHA512();
-
-            usuarioDTO.Password = hmac.ComputeHash(Encoding.UTF8.GetBytes(usuarioDTO.PasswordProporcionado));
-
-            var usuario = _mapper.Map<Usuario>(usuarioDTO);
-            await _unitOfWork.Usuarios.Insert(usuario);
+            var pedido = _mapper.Map<Pedido>(pedidoDTO);
+            await _unitOfWork.Pedidos.Insert(pedido);
             await _unitOfWork.Save();
 
-            return CreatedAtRoute("GetUsuario", new { id = usuario.UsuarioId }, usuario);
+            return CreatedAtRoute("GetPedido", new { id = pedido.PedidoId }, pedido);
 
         }
 
@@ -87,27 +78,23 @@ namespace WendyApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> UpdateUsuario([FromBody] UsuarioDTO usuarioDTO)
+        public async Task<IActionResult> UpdatePedido(int id, [FromBody] PedidoDTO pedidoDTO)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || id < 1)
             {
-                _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateUsuario)}");
+                _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdatePedido)}");
                 return BadRequest(ModelState);
             }
 
-            using var hmac = new HMACSHA512();
-
-            usuarioDTO.Password = hmac.ComputeHash(Encoding.UTF8.GetBytes(usuarioDTO.PasswordProporcionado));
-
-            var usuario = await _unitOfWork.Usuarios.Get(q => q.UsuarioId == usuarioDTO.UsuarioId);
-            if (usuario == null)
+            var pedido = await _unitOfWork.Pedidos.Get(q => q.PedidoId == id);
+            if (pedido == null)
             {
-                _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateUsuario)}");
+                _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdatePedido)}");
                 return BadRequest("Submitted data is invalid");
             }
 
-            _mapper.Map(usuarioDTO, usuario);
-            _unitOfWork.Usuarios.Update(usuario);
+            _mapper.Map(pedidoDTO, pedido);
+            _unitOfWork.Pedidos.Update(pedido);
             await _unitOfWork.Save();
 
             return NoContent();
@@ -119,27 +106,26 @@ namespace WendyApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> DeleteUsuario(int id)
+        public async Task<IActionResult> DeletePedido(int id)
         {
             if (id < 1)
             {
-                _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteUsuario)}");
+                _logger.LogError($"Invalid DELETE attempt in {nameof(DeletePedido)}");
                 return BadRequest();
             }
 
-            var usuario = await _unitOfWork.Usuarios.Get(q => q.UsuarioId == id);
-            if (usuario == null)
+            var pedido = await _unitOfWork.Pedidos.Get(q => q.PedidoId == id);
+            if (pedido == null)
             {
-                _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteUsuario)}");
+                _logger.LogError($"Invalid DELETE attempt in {nameof(DeletePedido)}");
                 return BadRequest("Submitted data is invalid");
             }
 
-            await _unitOfWork.Usuarios.Delete(id);
+            await _unitOfWork.Pedidos.Delete(id);
             await _unitOfWork.Save();
 
             return NoContent();
 
         }
     }
-    
 }
