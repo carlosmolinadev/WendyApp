@@ -12,12 +12,16 @@ namespace WendyApp.Server.IRepository
         IGenericRepository<EstadoPedido> EstadoPedidos { get; }
         IGenericRepository<HistorialPedido> HistorialPedidos { get; }
         IGenericRepository<Insumo> Insumos { get; }
+        IGenericRepository<InsumoCategoria> InsumosCategorias { get; }
         IGenericRepository<Pais> Paises { get; }
+        IGenericRepository<PaisProveedor> PaisesProveedores { get; }
         IGenericRepository<Pedido> Pedidos { get; }
+        IGenericRepository<PedidoInsumo> PedidosInsumos { get; }
         IGenericRepository<Proveedor> Proveedores { get; }
+        IGenericRepository<ProveedorInsumo> ProveedoresInsumos { get; }
         IGenericRepository<Sucursal> Sucursales { get; }
         IGenericRepository<Usuario> Usuarios { get; }
-        IGenericRepository<InsumoCategoria> InsumosCategorias { get; }
+        
         Task Save();
     }
 }

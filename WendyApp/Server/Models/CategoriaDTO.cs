@@ -7,7 +7,7 @@ namespace WendyApp.Server.Models
     {
         public int CategoriaId { get; set; }
         public string Nombre { get; set; }
-        [JsonIgnore]
-        public virtual List<InsumoDTO> Insumos { get; set; }
+
+        public List<InsumoDTO> Insumos { get; set; } = new List<InsumoDTO>();
     }
 }

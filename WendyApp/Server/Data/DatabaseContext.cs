@@ -7,6 +7,50 @@ namespace Wendy.Server.Data
 {
     public class DatabaseContext : DbContext
     {
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<InsumoCategoria>()
+                .HasOne(ic => ic.Categoria)
+                .WithMany(i => i.Insumos)
+                .HasForeignKey(ic => ic.CategoriaId);
+
+            modelBuilder.Entity<InsumoCategoria>()
+                .HasOne(i => i.Insumo)
+                .WithMany(c => c.Categorias)
+                .HasForeignKey(i => i.InsumoId);
+
+            modelBuilder.Entity<PedidoInsumo>()
+                .HasOne(i => i.Insumo)
+                .WithMany(p => p.Pedidos)
+                .HasForeignKey(i => i.InsumoId);
+
+            modelBuilder.Entity<PedidoInsumo>()
+                .HasOne(p => p.Pedido)
+                .WithMany(i => i.Insumos)
+                .HasForeignKey(p => p.PedidoId);
+
+            modelBuilder.Entity<PaisProveedor>()
+                .HasOne(pa => pa.Pais)
+                .WithMany(p => p.Proveedores)
+                .HasForeignKey(p => p.PaisId);
+
+            modelBuilder.Entity<PaisProveedor>()
+                .HasOne(p => p.Proveedor)
+                .WithMany(pa => pa.Paises)
+                .HasForeignKey(p => p.ProveedorId);
+
+            modelBuilder.Entity<ProveedorInsumo>()
+                .HasOne(p => p.Proveedor)
+                .WithMany(i => i.Insumos)
+                .HasForeignKey(p => p.ProveedorId);
+
+            modelBuilder.Entity<ProveedorInsumo>()
+                .HasOne(i => i.Insumo)
+                .WithMany(p => p.Proveedores)
+                .HasForeignKey(i => i.InsumoId);
+
+        }
+
         public DatabaseContext(DbContextOptions options) : base(options) 
         {}
         public DbSet<Categoria> Categorias { get; set; }

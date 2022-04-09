@@ -10,8 +10,8 @@ using Wendy.Server.Data;
 namespace WendyApp.Server.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220409012859_starter")]
-    partial class starter
+    [Migration("20220409213756_fixRelations")]
+    partial class fixRelations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
