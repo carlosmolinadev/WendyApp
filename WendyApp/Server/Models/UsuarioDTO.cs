@@ -6,7 +6,6 @@ namespace WendyApp.Server.Models
 {
     public class UsuarioDTO
     {
-        
         public int UsuarioId { get; set; }
         [Required]
         public string Nickname { get; set; }
@@ -22,5 +21,27 @@ namespace WendyApp.Server.Models
         public int SucursalId { get; set; }
         [JsonIgnore]
         public virtual SucursalDTO Sucursal { get; set; }
+    }
+
+    public class UsuarioDisplayDTO
+    {
+        public int UsuarioId { get; set; }
+     
+        public string Nickname { get; set; }
+
+
+        public string Email { get; set; }
+        
+        public string Rol { get; set; }
+
+        public int SucursalId { get; set; }
+        
+        public virtual SucursalDTO Sucursal { get; set; }
+    }
+
+    public class UsuarioCredentialsDTO
+    {
+        public string Nickname { get; set; }
+        public string Token { get; set; }
     }
 }

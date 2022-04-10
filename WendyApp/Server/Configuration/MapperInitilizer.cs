@@ -21,7 +21,8 @@ namespace WendyApp.Server.Configuration
             CreateMap<ProveedorInsumo, ProveedorInsumoDTO>().ReverseMap();
             CreateMap<Sucursal, SucursalDTO>().ReverseMap();
             CreateMap<Usuario, UsuarioDTO>().ReverseMap();
-            
+            CreateMap<Usuario, UsuarioDisplayDTO>().ReverseMap();
+
         }
     }
 }

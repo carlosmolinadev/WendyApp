@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,13 +9,14 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using WendyApp.Server.IRepository;
+using WendyApp.Server.Interfaces.IRepository;
+using WendyApp.Server.Interfaces.IServices;
 using WendyApp.Server.Models;
 using WendyApp.Shared.Domain;
 
 namespace WendyApp.Server.Controllers
 {
-    
+
     [ApiController]
     [Route("api/[controller]")]
     public class UsuarioController : ControllerBase
@@ -22,14 +24,15 @@ namespace WendyApp.Server.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<UsuarioController> _logger;
         private readonly IMapper _mapper;
-
+        private readonly ITokenService _tokenService;
 
         public UsuarioController(IUnitOfWork unitOfWork, ILogger<UsuarioController> logger,
-            IMapper mapper)
+            IMapper mapper, ITokenService tokenService)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
             _mapper = mapper;
+            _tokenService = tokenService;
         }
 
         [HttpGet]
@@ -41,10 +44,17 @@ namespace WendyApp.Server.Controllers
         public async Task<IActionResult> GetUsuarios()
         {
             var usuarios = await _unitOfWork.Usuarios.GetAll();
-            var results = _mapper.Map<List<UsuarioDTO>>(usuarios);
+
+            for (int i = 0; i < usuarios.Count; i++)
+            {
+
+            }
+
+            var results = _mapper.Map<List<UsuarioDisplayDTO>>(usuarios);
             return Ok(results);
         }
 
+        //[Authorize]
         [HttpGet("{id:int}", Name = "GetUsuario")]
         ////[ResponseCache(CacheProfileName = "120SecondsDuration")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -62,7 +72,7 @@ namespace WendyApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateUsuario([FromBody] UsuarioDTO usuarioDTO)
+        public async Task<ActionResult<UsuarioCredentialsDTO>> CreateUsuario([FromBody] UsuarioDTO usuarioDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -79,10 +89,11 @@ namespace WendyApp.Server.Controllers
             await _unitOfWork.Usuarios.Insert(usuario);
             await _unitOfWork.Save();
 
-            usuario.Password = new byte[0];
-            usuario.PasswordSalt = new byte[0];
-
-            return CreatedAtRoute("GetUsuario", new { id = usuario.UsuarioId }, usuario);
+            return new UsuarioCredentialsDTO
+            {
+                Nickname = usuarioDTO.Nickname,
+                Token = _tokenService.CreateToken(usuarioDTO)
+            };
 
         }
 
