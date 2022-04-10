@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
+using WendyApp.Server.Configuration.Entities;
 using WendyApp.Shared.Domain;
 
 
@@ -49,6 +50,9 @@ namespace Wendy.Server.Data
                 .WithMany(p => p.Proveedores)
                 .HasForeignKey(i => i.InsumoId);
 
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new PaisConfiguration());
+            modelBuilder.ApplyConfiguration(new SucursalConfiguration());
         }
 
         public DatabaseContext(DbContextOptions options) : base(options) 

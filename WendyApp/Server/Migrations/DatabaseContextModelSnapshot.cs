@@ -133,6 +133,18 @@ namespace WendyApp.Server.Migrations
                     b.HasKey("PaisId");
 
                     b.ToTable("Paises");
+
+                    b.HasData(
+                        new
+                        {
+                            PaisId = 1,
+                            Nombre = "El Salvador"
+                        },
+                        new
+                        {
+                            PaisId = 2,
+                            Nombre = "Guatemala"
+                        });
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.PaisProveedor", b =>
@@ -285,6 +297,16 @@ namespace WendyApp.Server.Migrations
                     b.HasIndex("PaisId");
 
                     b.ToTable("Sucursales");
+
+                    b.HasData(
+                        new
+                        {
+                            SucursalId = 1,
+                            Direccion = "Metrocentro 8va etapa",
+                            FechaCreacion = new DateTime(2022, 4, 9, 20, 49, 36, 720, DateTimeKind.Local).AddTicks(2379),
+                            Nombre = "Sucursal Metrocentro",
+                            PaisId = 1
+                        });
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Usuario", b =>
@@ -301,6 +323,9 @@ namespace WendyApp.Server.Migrations
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<byte[]>("Password")
+                        .HasColumnType("RAW(2000)");
+
+                    b.Property<byte[]>("PasswordSalt")
                         .HasColumnType("RAW(2000)");
 
                     b.Property<string>("Rol")

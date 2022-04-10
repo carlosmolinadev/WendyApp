@@ -6,13 +6,14 @@ namespace WendyApp.Server.Models
 {
     public class UsuarioDTO
     {
-        [JsonIgnore]
+        
         public int UsuarioId { get; set; }
         [Required]
         public string Nickname { get; set; }
         [Required]
         public string Email { get; set; }
         public byte[] Password { get; set; }
+        public byte[] PasswordSalt { get; set; }
         [Required]
         public string Rol { get; set; }
 
