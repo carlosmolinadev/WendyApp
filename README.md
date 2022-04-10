@@ -6,7 +6,7 @@ Build solution
 
 Change connection string to your database in appsettings.json in the server project
 
-(Make sure to create WENDY database first and drop all the database, Update-Database will recreate the DB based on the context mapping)
+(Make sure to create WENDY scheme first and drop all the tables in database, Update-Database will recreate the DB based on the context mapping)
 Run the Package Manager windows and run the following commands
 
 Add-Migration (Nombre de su migracion)
