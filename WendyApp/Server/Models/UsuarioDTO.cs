@@ -13,6 +13,7 @@ namespace WendyApp.Server.Models
         [Required]
         public string Email { get; set; }
         public byte[] Password { get; set; }
+        public byte[] PasswordSalt { get; set; }
         [Required]
         public string Rol { get; set; }
 

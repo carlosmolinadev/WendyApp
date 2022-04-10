@@ -11,6 +11,7 @@ namespace WendyApp.Shared.Domain
         public string Nickname { get; set; }
         public string Email { get; set; }
         public byte[] Password { get; set; }
+        public byte[] PasswordSalt { get; set; }
         public string Rol { get; set; }
 
         [ForeignKey(nameof(Sucursal))]

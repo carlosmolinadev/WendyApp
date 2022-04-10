@@ -73,10 +73,14 @@ namespace WendyApp.Server.Controllers
             using var hmac = new HMACSHA512();
 
             usuarioDTO.Password = hmac.ComputeHash(Encoding.UTF8.GetBytes(usuarioDTO.PasswordProporcionado));
+            usuarioDTO.PasswordSalt = hmac.Key;
 
             var usuario = _mapper.Map<Usuario>(usuarioDTO);
             await _unitOfWork.Usuarios.Insert(usuario);
             await _unitOfWork.Save();
+
+            usuario.Password = new byte[0];
+            usuario.PasswordSalt = new byte[0];
 
             return CreatedAtRoute("GetUsuario", new { id = usuario.UsuarioId }, usuario);
 
@@ -87,7 +91,7 @@ namespace WendyApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> UpdateUsuario([FromBody] UsuarioDTO usuarioDTO)
+        public async Task<IActionResult> UpdateUsuario(int id, [FromBody] UsuarioDTO usuarioDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -98,6 +102,7 @@ namespace WendyApp.Server.Controllers
             using var hmac = new HMACSHA512();
 
             usuarioDTO.Password = hmac.ComputeHash(Encoding.UTF8.GetBytes(usuarioDTO.PasswordProporcionado));
+            usuarioDTO.PasswordSalt = hmac.Key;
 
             var usuario = await _unitOfWork.Usuarios.Get(q => q.UsuarioId == usuarioDTO.UsuarioId);
             if (usuario == null)
@@ -155,7 +160,7 @@ namespace WendyApp.Server.Controllers
 
             var usuario = await _unitOfWork.Usuarios.Get(q => q.UsuarioId == usuarioDTO.UsuarioId);
 
-            using var hmac = new HMACSHA512();
+            using var hmac = new HMACSHA512(usuario.PasswordSalt);
 
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(usuarioDTO.PasswordProporcionado));
 
