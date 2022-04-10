@@ -59,17 +59,9 @@ namespace WendyApp.Server.Controllers
 
             var categoriaDTO = new CategoriaDTO { CategoriaId = categoria.CategoriaId, Nombre = categoria.Nombre, Insumos = insumos };
 
-            
-            //var categoria = await _unitOfWork.InsumosCategorias.GetAll(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumo));
-            //var insumos = await _unitOfWork.InsumosCategorias.GetAll(q => q.InsumoId == c);
+            var result = _mapper.Map<CategoriaDTO>(categoria);
 
-            //var categoria = await _unitOfWork.InsumosCategorias.Get(q => q.CategoriaId == id);
-
-            //var result = _mapper.Map<InsumoCategoriaDTO>(insumosCategorias);
-
-            //var list = new List<InsumoDTO>();
-            //list.Add(x.Insumos);
-            return Ok(categoriaDTO);
+            return Ok(result);
         }
 
         //[Authorize(Roles = "Administrator")]

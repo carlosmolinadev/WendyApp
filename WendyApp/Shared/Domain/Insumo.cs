@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 #nullable disable
 
@@ -12,8 +13,11 @@ namespace WendyApp.Shared.Domain
         public string Descripcion { get; set; }
         public DateTime FechaCreacion { get; set; }
 
+        [JsonIgnore]
         public virtual List<InsumoCategoria> Categorias { get; set; }
+        [JsonIgnore]
         public virtual List<PedidoInsumo> Pedidos { get; set; }
+        [JsonIgnore]
         public virtual List<ProveedorInsumo> Proveedores { get; set; }
     }
 }

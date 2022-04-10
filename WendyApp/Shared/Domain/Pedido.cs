@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 #nullable disable
 
@@ -25,7 +26,9 @@ namespace WendyApp.Shared.Domain
         public int EstadoPedidosId { get; set; }
         public EstadoPedido EstadoPedidos { get; set; }
 
+        [JsonIgnore]
         public virtual List<HistorialPedido> HistorialPedidos { get; set; }
+        [JsonIgnore]
         public virtual List<PedidoInsumo> Insumos { get; set; }
     }
 }

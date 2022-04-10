@@ -7,6 +7,7 @@ namespace WendyApp.Server.Models
 {
     public class SucursalDTO 
     {
+        [JsonIgnore]
         public int SucursalId { get; set; }
 
         [Required]
