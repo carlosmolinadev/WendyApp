@@ -32,6 +32,13 @@ namespace WendyApp.Server.Migrations
                     b.HasKey("CategoriaId");
 
                     b.ToTable("Categorias");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoriaId = 1,
+                            Nombre = "Vegetales"
+                        });
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.EstadoPedido", b =>
@@ -303,7 +310,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 1,
                             Direccion = "Metrocentro 8va etapa",
-                            FechaCreacion = new DateTime(2022, 4, 9, 20, 49, 36, 720, DateTimeKind.Local).AddTicks(2379),
+                            FechaCreacion = new DateTime(2022, 4, 10, 10, 22, 34, 42, DateTimeKind.Local).AddTicks(5715),
                             Nombre = "Sucursal Metrocentro",
                             PaisId = 1
                         });
@@ -339,6 +346,18 @@ namespace WendyApp.Server.Migrations
                     b.HasIndex("SucursalId");
 
                     b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            UsuarioId = 1,
+                            Email = "usuario_admin@wendy.com",
+                            Nickname = "admin",
+                            Password = new byte[] { 135, 5, 30, 199, 96, 238, 78, 143, 128, 109, 91, 83, 3, 159, 38, 136, 206, 81, 233, 223, 199, 117, 206, 163, 106, 111, 109, 17, 158, 225, 6, 207, 59, 224, 82, 174, 40, 139, 2, 14, 145, 98, 134, 223, 227, 129, 86, 91, 134, 49, 238, 73, 197, 231, 227, 178, 105, 8, 79, 209, 62, 90, 152, 42 },
+                            PasswordSalt = new byte[] { 103, 53, 23, 212, 3, 45, 165, 237, 38, 11, 107, 157, 180, 109, 106, 186, 72, 30, 210, 121, 155, 139, 106, 100, 50, 115, 69, 186, 156, 141, 251, 184, 220, 212, 229, 133, 47, 250, 238, 48, 210, 26, 127, 172, 171, 157, 203, 126, 50, 149, 53, 19, 212, 17, 26, 59, 230, 62, 187, 0, 16, 177, 55, 30, 184, 101, 29, 209, 29, 121, 224, 148, 170, 57, 211, 75, 202, 99, 87, 56, 105, 174, 245, 99, 170, 2, 16, 251, 145, 3, 235, 91, 154, 177, 26, 196, 119, 5, 241, 19, 113, 46, 114, 83, 158, 238, 101, 87, 122, 183, 73, 46, 31, 42, 56, 193, 117, 66, 130, 116, 120, 240, 57, 58, 145, 114, 190, 149 },
+                            Rol = "ADMIN",
+                            SucursalId = 1
+                        });
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.HistorialPedido", b =>

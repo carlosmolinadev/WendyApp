@@ -161,7 +161,7 @@ namespace WendyApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> ValidateUsuario([FromBody] UsuarioDTO usuarioDTO)
+        public async Task<ActionResult<UsuarioCredentialsDTO>> ValidateUsuario([FromBody] UsuarioDTO usuarioDTO)
         {
             if (!ModelState.IsValid)
             {
@@ -180,7 +180,11 @@ namespace WendyApp.Server.Controllers
                 if (computedHash[i] != usuario.Password[i]) return Unauthorized("Invalid Password");
             }
 
-            return Ok();
+            return new UsuarioCredentialsDTO
+            {
+                Nickname = usuarioDTO.Nickname,
+                Token = _tokenService.CreateToken(usuarioDTO)
+            };
 
         }
     }
