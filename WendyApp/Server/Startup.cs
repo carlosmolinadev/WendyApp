@@ -31,6 +31,13 @@ namespace WendyApp.Server
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseOracle(
                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddCors(o =>
+            {
+                o.AddPolicy("AllowAll", builder =>
+                    builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
             services.AddAutoMapper(typeof(MapperInitilizer));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews().AddNewtonsoftJson(op => op.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
