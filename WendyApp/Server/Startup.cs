@@ -62,6 +62,8 @@ namespace WendyApp.Server
             });
 
             app.UseHttpsRedirection();
+            app.UseCors("AllowAll");
+            app.UseResponseCaching();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
 
