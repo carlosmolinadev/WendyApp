@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WendyApp.Shared.Domain;
 
-namespace WendyApp.Server.IRepository
+namespace WendyApp.Server.Interfaces.IRepository
 {
     public interface IUnitOfWork : IDisposable
     {
@@ -21,7 +21,7 @@ namespace WendyApp.Server.IRepository
         IGenericRepository<ProveedorInsumo> ProveedoresInsumos { get; }
         IGenericRepository<Sucursal> Sucursales { get; }
         IGenericRepository<Usuario> Usuarios { get; }
-        
+
         Task Save();
     }
 }

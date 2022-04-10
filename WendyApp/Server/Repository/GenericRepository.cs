@@ -1,5 +1,4 @@
-﻿using WendyApp.Server.IRepository;
-using WendyApp.Server.Models;
+﻿using WendyApp.Server.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
@@ -9,6 +8,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using X.PagedList;
 using Wendy.Server.Data;
+using WendyApp.Server.Interfaces.IRepository;
 
 namespace WendyApp.Server.Repository
 {

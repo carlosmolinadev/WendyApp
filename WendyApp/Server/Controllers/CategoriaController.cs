@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using WendyApp.Server.IRepository;
+using WendyApp.Server.Interfaces.IRepository;
 using WendyApp.Server.Models;
 using WendyApp.Shared.Domain;
 
 namespace WendyApp.Server.Controllers
 {
-    
+
     [ApiController]
     [Route("api/[controller]")]
     public class CategoriaController : ControllerBase

@@ -1,10 +1,10 @@
-﻿using WendyApp.Server.IRepository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WendyApp.Shared.Domain;
 using Wendy.Server.Data;
+using WendyApp.Server.Interfaces.IRepository;
 
 namespace WendyApp.Server.Repository
 {

@@ -9,14 +9,20 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Wendy.Server.Data;
 using WendyApp.Server.Configuration;
-using WendyApp.Server.IRepository;
 using WendyApp.Server.Repository;
 using Newtonsoft;
+using WendyApp.Server.Interfaces.IRepository;
+using WendyApp.Server.Interfaces.IServices;
+using WendyApp.Server.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace WendyApp.Server
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -38,8 +44,20 @@ namespace WendyApp.Server
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"])),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });
             services.AddAutoMapper(typeof(MapperInitilizer));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ITokenService, TokenService>();
             services.AddControllersWithViews().AddNewtonsoftJson(op => op.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddRazorPages();
             services.AddSwaggerGen();
@@ -69,12 +87,16 @@ namespace WendyApp.Server
             });
 
             app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseCors("AllowAll");
+
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseResponseCaching();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
 
-            app.UseRouting();
+            
 
             app.UseEndpoints(endpoints =>
             {

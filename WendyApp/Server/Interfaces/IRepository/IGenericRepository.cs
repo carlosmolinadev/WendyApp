@@ -5,10 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using X.PagedList;
-using WendyApp.Server.Models;
 
-namespace WendyApp.Server.IRepository
+
+namespace WendyApp.Server.Interfaces.IRepository
 {
     public interface IGenericRepository<T> where T : class
     {
