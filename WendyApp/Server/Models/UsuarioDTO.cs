@@ -6,7 +6,7 @@ namespace WendyApp.Server.Models
 {
     public class UsuarioDTO
     {
-        [JsonIgnore]
+        
         public int UsuarioId { get; set; }
         [Required]
         public string Nickname { get; set; }

@@ -140,6 +140,33 @@ namespace WendyApp.Server.Controllers
             return NoContent();
 
         }
+
+        [HttpPost("Validar")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> ValidateUsuario([FromBody] UsuarioDTO usuarioDTO)
+        {
+            if (!ModelState.IsValid)
+            {
+                _logger.LogError($"Invalid validation attempt in {nameof(ValidateUsuario)}");
+                return BadRequest(ModelState);
+            }
+
+            var usuario = await _unitOfWork.Usuarios.Get(q => q.UsuarioId == usuarioDTO.UsuarioId);
+
+            using var hmac = new HMACSHA512();
+
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(usuarioDTO.PasswordProporcionado));
+
+            for (int i = 0; i < computedHash.Length; i++)
+            {
+                if (computedHash[i] != usuario.Password[i]) return Unauthorized("Invalid Password");
+            }
+
+            return Ok();
+
+        }
     }
     
 }
