@@ -6,10 +6,11 @@ Build solution
 
 Change connection string to your database in appsettings.json in the server project
 
-(Make sure to create WENDY database first)
+(Make sure to create WENDY database first and drop all the database, Update-Database will recreate the DB based on the context mapping)
 Run the Package Manager windows and run the following commands
 
 Add-Migration (Nombre de su migracion)
+
 Update-Database
   
 Run project and go to the following URL to test the endpoints: https://localhost:5001/swagger or change your port depending where the app will run
