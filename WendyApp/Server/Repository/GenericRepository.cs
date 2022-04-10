@@ -71,19 +71,7 @@ namespace WendyApp.Server.Repository
             return await query.AsNoTracking().ToListAsync();
         }
 
-        public async Task<IPagedList<T>> GetPagedList(RequestParams requestParams, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null)
-        {
-            IQueryable<T> query = _db;
 
-
-            if (include != null)
-            {
-                query = include(query);
-            }
-
-            return await query.AsNoTracking()
-                .ToPagedListAsync(requestParams.PageNumber, requestParams.PageSize);
-        }
 
         public async Task Insert(T entity)
         {
