@@ -53,6 +53,9 @@ namespace Wendy.Server.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new PaisConfiguration());
             modelBuilder.ApplyConfiguration(new SucursalConfiguration());
+            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoriaConfiguration());
+            
         }
 
         public DatabaseContext(DbContextOptions options) : base(options) 
