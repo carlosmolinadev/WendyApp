@@ -51,11 +51,21 @@ namespace Wendy.Server.Data
                 .HasForeignKey(i => i.InsumoId);
 
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfiguration(new PaisConfiguration());
             modelBuilder.ApplyConfiguration(new SucursalConfiguration());
             modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
             modelBuilder.ApplyConfiguration(new CategoriaConfiguration());
-            
+            modelBuilder.ApplyConfiguration(new ProveedorConfiguration());
+            modelBuilder.ApplyConfiguration(new EstadoPedidoConfiguration());
+            modelBuilder.ApplyConfiguration(new HistorialPedidoConfiguration());
+            modelBuilder.ApplyConfiguration(new InsumoCategoriaConfiguration());
+            modelBuilder.ApplyConfiguration(new PaisProveedorConfiguration());
+            modelBuilder.ApplyConfiguration(new PedidoConfiguration());
+            modelBuilder.ApplyConfiguration(new PedidoInsumoConfiguration());
+            modelBuilder.ApplyConfiguration(new ProveedorConfiguration());
+            modelBuilder.ApplyConfiguration(new ProveedorInsumoConfiguration());
+
         }
 
         public DatabaseContext(DbContextOptions options) : base(options) 

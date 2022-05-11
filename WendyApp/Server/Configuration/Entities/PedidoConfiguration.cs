@@ -5,14 +5,14 @@ using WendyApp.Shared.Domain;
 
 namespace WendyApp.Server.Configuration.Entities
 {
-    public class InsumoConfiguration : IEntityTypeConfiguration<Insumo>
+    public class PedidoConfiguration : IEntityTypeConfiguration<Pedido>
     {
-
-        public void Configure(EntityTypeBuilder<Insumo> builder)
+        public void Configure(EntityTypeBuilder<Pedido> builder)
         {
             builder.HasData(
-                new Insumo
+                new Pedido
                 {
+                   
                 }
             );
         }
