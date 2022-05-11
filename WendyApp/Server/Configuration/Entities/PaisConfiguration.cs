@@ -18,6 +18,11 @@ namespace WendyApp.Server.Configuration.Entities
                 {
                     PaisId = 2,
                     Nombre = "Guatemala"
+                },
+                new Pais
+                {
+                    PaisId = 3,
+                    Nombre = "Costa Rica"
                 }
             );
         }

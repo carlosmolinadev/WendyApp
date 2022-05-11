@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WendyApp.Server.Interfaces.IServices;
-using WendyApp.Server.Services;
 using WendyApp.Shared.Domain;
 using System.Security.Cryptography;
 using System.Text;
-using System.Diagnostics;
 
 namespace WendyApp.Server.Configuration.Entities
 {
@@ -36,6 +33,16 @@ namespace WendyApp.Server.Configuration.Entities
                     PasswordSalt = generatedPassword.PasswordSalt,
                     Email = "usuario_admin@wendy.com",
                     Rol = "ADMIN",
+                    SucursalId = 1
+                },
+                new Usuario
+                {
+                    UsuarioId = 2,
+                    Nickname = "carmolina",
+                    Password = generatedPassword.Password,
+                    PasswordSalt = generatedPassword.PasswordSalt,
+                    Email = "carlos_molina@wendy.com",
+                    Rol = "SUPERVISOR",
                     SucursalId = 1
                 }
             );
