@@ -4,6 +4,6 @@ namespace WendyApp.Server.Interfaces.IServices
 {
     public interface ITokenService
     {
-        string CreateToken(UsuarioDTO usuarioDTO);
+        string CreateToken(UsuarioDTO usuarioDTO, SucursalDTO sucursalDTO);
     }
 }

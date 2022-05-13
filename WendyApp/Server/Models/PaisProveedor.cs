@@ -16,5 +16,7 @@ namespace WendyApp.Server.Models
         public int ProveedorId { get; set; }
 
         public virtual ProveedorDTO Proveedor { get; set; }
+
+        public decimal CostoTransporte { get; set; }
     }
 }

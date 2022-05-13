@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WendyApp.Server.Migrations
 {
-    public partial class FirstDeploy : Migration
+    public partial class UpdatedDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -41,7 +41,8 @@ namespace WendyApp.Server.Migrations
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     Nombre = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     Descripcion = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
-                    FechaCreacion = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false)
+                    FechaCreacion = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
+                    Precio = table.Column<decimal>(type: "DECIMAL(18, 2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -130,6 +131,7 @@ namespace WendyApp.Server.Migrations
                 {
                     Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    CostoTransporte = table.Column<decimal>(type: "DECIMAL(18, 2)", nullable: false),
                     PaisId = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     ProveedorId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
@@ -158,7 +160,7 @@ namespace WendyApp.Server.Migrations
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     ProveedorId = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     InsumoId = table.Column<int>(type: "NUMBER(10)", nullable: false),
-                    Preciocompra = table.Column<double>(type: "BINARY_DOUBLE", nullable: false)
+                    Precio = table.Column<decimal>(type: "DECIMAL(18, 2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -183,7 +185,6 @@ namespace WendyApp.Server.Migrations
                 {
                     PedidoId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    CostoTransporte = table.Column<double>(type: "BINARY_DOUBLE", nullable: false),
                     FechaEntrega = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
                     FechaCreacion = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
                     ProveedorId = table.Column<int>(type: "NUMBER(10)", nullable: false),
@@ -272,6 +273,8 @@ namespace WendyApp.Server.Migrations
                     Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     InsumoId = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    Cantidad = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    Precio = table.Column<decimal>(type: "DECIMAL(18, 2)", nullable: false),
                     PedidoId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
@@ -299,22 +302,27 @@ namespace WendyApp.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Paises",
                 columns: new[] { "PaisId", "Nombre" },
-                values: new object[] { 1, "El Salvador" });
-
-            migrationBuilder.InsertData(
-                table: "Paises",
-                columns: new[] { "PaisId", "Nombre" },
-                values: new object[] { 2, "Guatemala" });
+                values: new object[,]
+                {
+                    { 1, "El Salvador" },
+                    { 2, "Guatemala" },
+                    { 3, "Costa Rica" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Sucursales",
                 columns: new[] { "SucursalId", "Direccion", "FechaCreacion", "Nombre", "PaisId" },
-                values: new object[] { 1, "Metrocentro 8va etapa", new DateTime(2022, 4, 10, 10, 22, 34, 42, DateTimeKind.Local).AddTicks(5715), "Sucursal Metrocentro", 1 });
+                values: new object[] { 1, "Metrocentro 8va etapa", new DateTime(2022, 5, 13, 7, 49, 47, 234, DateTimeKind.Local).AddTicks(5033), "Sucursal Metrocentro", 1 });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Email", "Nickname", "Password", "PasswordSalt", "Rol", "SucursalId" },
-                values: new object[] { 1, "usuario_admin@wendy.com", "admin", new byte[] { 135, 5, 30, 199, 96, 238, 78, 143, 128, 109, 91, 83, 3, 159, 38, 136, 206, 81, 233, 223, 199, 117, 206, 163, 106, 111, 109, 17, 158, 225, 6, 207, 59, 224, 82, 174, 40, 139, 2, 14, 145, 98, 134, 223, 227, 129, 86, 91, 134, 49, 238, 73, 197, 231, 227, 178, 105, 8, 79, 209, 62, 90, 152, 42 }, new byte[] { 103, 53, 23, 212, 3, 45, 165, 237, 38, 11, 107, 157, 180, 109, 106, 186, 72, 30, 210, 121, 155, 139, 106, 100, 50, 115, 69, 186, 156, 141, 251, 184, 220, 212, 229, 133, 47, 250, 238, 48, 210, 26, 127, 172, 171, 157, 203, 126, 50, 149, 53, 19, 212, 17, 26, 59, 230, 62, 187, 0, 16, 177, 55, 30, 184, 101, 29, 209, 29, 121, 224, 148, 170, 57, 211, 75, 202, 99, 87, 56, 105, 174, 245, 99, 170, 2, 16, 251, 145, 3, 235, 91, 154, 177, 26, 196, 119, 5, 241, 19, 113, 46, 114, 83, 158, 238, 101, 87, 122, 183, 73, 46, 31, 42, 56, 193, 117, 66, 130, 116, 120, 240, 57, 58, 145, 114, 190, 149 }, "ADMIN", 1 });
+                values: new object[] { 1, "usuario_admin@wendy.com", "admin", new byte[] { 213, 4, 3, 13, 5, 62, 10, 130, 4, 60, 30, 157, 33, 78, 43, 25, 153, 222, 134, 50, 115, 239, 136, 193, 222, 201, 212, 121, 25, 250, 195, 14, 107, 50, 152, 33, 147, 119, 210, 171, 141, 48, 125, 236, 135, 9, 16, 215, 215, 34, 221, 226, 190, 31, 251, 174, 165, 168, 234, 90, 117, 10, 101, 32 }, new byte[] { 250, 10, 48, 46, 124, 120, 139, 58, 9, 103, 200, 233, 227, 230, 172, 35, 90, 91, 78, 100, 88, 167, 82, 235, 142, 40, 62, 194, 204, 9, 236, 223, 43, 82, 76, 173, 176, 157, 47, 168, 224, 50, 34, 141, 18, 149, 202, 61, 113, 0, 107, 144, 215, 98, 234, 86, 166, 251, 42, 182, 51, 214, 99, 133, 102, 145, 215, 145, 248, 66, 113, 35, 86, 20, 0, 206, 112, 227, 56, 37, 30, 241, 109, 171, 136, 216, 145, 43, 70, 16, 183, 195, 88, 114, 87, 168, 127, 160, 89, 187, 50, 244, 231, 2, 212, 180, 47, 221, 120, 176, 62, 141, 110, 108, 247, 145, 184, 5, 210, 30, 226, 140, 243, 136, 66, 102, 146, 239 }, "ADMIN", 1 });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "UsuarioId", "Email", "Nickname", "Password", "PasswordSalt", "Rol", "SucursalId" },
+                values: new object[] { 2, "carlos_molina@wendy.com", "carmolina", new byte[] { 213, 4, 3, 13, 5, 62, 10, 130, 4, 60, 30, 157, 33, 78, 43, 25, 153, 222, 134, 50, 115, 239, 136, 193, 222, 201, 212, 121, 25, 250, 195, 14, 107, 50, 152, 33, 147, 119, 210, 171, 141, 48, 125, 236, 135, 9, 16, 215, 215, 34, 221, 226, 190, 31, 251, 174, 165, 168, 234, 90, 117, 10, 101, 32 }, new byte[] { 250, 10, 48, 46, 124, 120, 139, 58, 9, 103, 200, 233, 227, 230, 172, 35, 90, 91, 78, 100, 88, 167, 82, 235, 142, 40, 62, 194, 204, 9, 236, 223, 43, 82, 76, 173, 176, 157, 47, 168, 224, 50, 34, 141, 18, 149, 202, 61, 113, 0, 107, 144, 215, 98, 234, 86, 166, 251, 42, 182, 51, 214, 99, 133, 102, 145, 215, 145, 248, 66, 113, 35, 86, 20, 0, 206, 112, 227, 56, 37, 30, 241, 109, 171, 136, 216, 145, 43, 70, 16, 183, 195, 88, 114, 87, 168, 127, 160, 89, 187, 50, 244, 231, 2, 212, 180, 47, 221, 120, 176, 62, 141, 110, 108, 247, 145, 184, 5, 210, 30, 226, 140, 243, 136, 66, 102, 146, 239 }, "SUPERVISOR", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_HistorialPedidos_EstadoPedidosId",

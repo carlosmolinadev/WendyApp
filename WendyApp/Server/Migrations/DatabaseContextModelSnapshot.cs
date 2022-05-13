@@ -100,6 +100,9 @@ namespace WendyApp.Server.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("NVARCHAR2(2000)");
 
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("DECIMAL(18, 2)");
+
                     b.HasKey("InsumoId");
 
                     b.ToTable("Insumos");
@@ -151,6 +154,11 @@ namespace WendyApp.Server.Migrations
                         {
                             PaisId = 2,
                             Nombre = "Guatemala"
+                        },
+                        new
+                        {
+                            PaisId = 3,
+                            Nombre = "Costa Rica"
                         });
                 });
 
@@ -160,6 +168,9 @@ namespace WendyApp.Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)")
                         .HasAnnotation("Oracle:ValueGenerationStrategy", OracleValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("CostoTransporte")
+                        .HasColumnType("DECIMAL(18, 2)");
 
                     b.Property<int>("PaisId")
                         .HasColumnType("NUMBER(10)");
@@ -182,9 +193,6 @@ namespace WendyApp.Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)")
                         .HasAnnotation("Oracle:ValueGenerationStrategy", OracleValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("CostoTransporte")
-                        .HasColumnType("BINARY_DOUBLE");
 
                     b.Property<int>("EstadoPedidosId")
                         .HasColumnType("NUMBER(10)");
@@ -219,11 +227,17 @@ namespace WendyApp.Server.Migrations
                         .HasColumnType("NUMBER(10)")
                         .HasAnnotation("Oracle:ValueGenerationStrategy", OracleValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("NUMBER(10)");
+
                     b.Property<int>("InsumoId")
                         .HasColumnType("NUMBER(10)");
 
                     b.Property<int>("PedidoId")
                         .HasColumnType("NUMBER(10)");
+
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("DECIMAL(18, 2)");
 
                     b.HasKey("Id");
 
@@ -265,8 +279,8 @@ namespace WendyApp.Server.Migrations
                     b.Property<int>("InsumoId")
                         .HasColumnType("NUMBER(10)");
 
-                    b.Property<double>("Preciocompra")
-                        .HasColumnType("BINARY_DOUBLE");
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("DECIMAL(18, 2)");
 
                     b.Property<int>("ProveedorId")
                         .HasColumnType("NUMBER(10)");
@@ -310,7 +324,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 1,
                             Direccion = "Metrocentro 8va etapa",
-                            FechaCreacion = new DateTime(2022, 4, 14, 12, 40, 42, 639, DateTimeKind.Local).AddTicks(4259),
+                            FechaCreacion = new DateTime(2022, 5, 13, 7, 49, 47, 234, DateTimeKind.Local).AddTicks(5033),
                             Nombre = "Sucursal Metrocentro",
                             PaisId = 1
                         });
@@ -353,9 +367,19 @@ namespace WendyApp.Server.Migrations
                             UsuarioId = 1,
                             Email = "usuario_admin@wendy.com",
                             Nickname = "admin",
-                            Password = new byte[] { 134, 85, 9, 225, 96, 168, 91, 37, 241, 252, 77, 242, 63, 247, 246, 200, 219, 103, 83, 252, 149, 86, 7, 233, 101, 16, 130, 101, 42, 109, 40, 215, 39, 203, 15, 242, 109, 184, 93, 157, 6, 147, 83, 171, 145, 59, 67, 169, 48, 71, 24, 240, 212, 182, 181, 171, 125, 180, 133, 140, 114, 71, 75, 208 },
-                            PasswordSalt = new byte[] { 127, 179, 137, 170, 117, 234, 221, 180, 160, 132, 246, 105, 200, 178, 12, 35, 34, 100, 65, 4, 178, 86, 43, 83, 181, 244, 241, 82, 43, 202, 68, 51, 238, 137, 174, 217, 233, 120, 30, 83, 3, 168, 180, 246, 134, 167, 142, 20, 77, 142, 21, 32, 147, 160, 51, 218, 44, 70, 124, 164, 84, 237, 157, 196, 236, 97, 124, 102, 253, 40, 134, 154, 49, 250, 157, 57, 91, 219, 110, 245, 62, 71, 147, 19, 140, 80, 38, 114, 56, 51, 93, 74, 132, 181, 233, 56, 186, 72, 50, 233, 63, 205, 121, 66, 133, 230, 34, 2, 71, 201, 215, 63, 184, 79, 36, 198, 165, 37, 110, 25, 67, 242, 172, 122, 226, 105, 219, 144 },
+                            Password = new byte[] { 213, 4, 3, 13, 5, 62, 10, 130, 4, 60, 30, 157, 33, 78, 43, 25, 153, 222, 134, 50, 115, 239, 136, 193, 222, 201, 212, 121, 25, 250, 195, 14, 107, 50, 152, 33, 147, 119, 210, 171, 141, 48, 125, 236, 135, 9, 16, 215, 215, 34, 221, 226, 190, 31, 251, 174, 165, 168, 234, 90, 117, 10, 101, 32 },
+                            PasswordSalt = new byte[] { 250, 10, 48, 46, 124, 120, 139, 58, 9, 103, 200, 233, 227, 230, 172, 35, 90, 91, 78, 100, 88, 167, 82, 235, 142, 40, 62, 194, 204, 9, 236, 223, 43, 82, 76, 173, 176, 157, 47, 168, 224, 50, 34, 141, 18, 149, 202, 61, 113, 0, 107, 144, 215, 98, 234, 86, 166, 251, 42, 182, 51, 214, 99, 133, 102, 145, 215, 145, 248, 66, 113, 35, 86, 20, 0, 206, 112, 227, 56, 37, 30, 241, 109, 171, 136, 216, 145, 43, 70, 16, 183, 195, 88, 114, 87, 168, 127, 160, 89, 187, 50, 244, 231, 2, 212, 180, 47, 221, 120, 176, 62, 141, 110, 108, 247, 145, 184, 5, 210, 30, 226, 140, 243, 136, 66, 102, 146, 239 },
                             Rol = "ADMIN",
+                            SucursalId = 1
+                        },
+                        new
+                        {
+                            UsuarioId = 2,
+                            Email = "carlos_molina@wendy.com",
+                            Nickname = "carmolina",
+                            Password = new byte[] { 213, 4, 3, 13, 5, 62, 10, 130, 4, 60, 30, 157, 33, 78, 43, 25, 153, 222, 134, 50, 115, 239, 136, 193, 222, 201, 212, 121, 25, 250, 195, 14, 107, 50, 152, 33, 147, 119, 210, 171, 141, 48, 125, 236, 135, 9, 16, 215, 215, 34, 221, 226, 190, 31, 251, 174, 165, 168, 234, 90, 117, 10, 101, 32 },
+                            PasswordSalt = new byte[] { 250, 10, 48, 46, 124, 120, 139, 58, 9, 103, 200, 233, 227, 230, 172, 35, 90, 91, 78, 100, 88, 167, 82, 235, 142, 40, 62, 194, 204, 9, 236, 223, 43, 82, 76, 173, 176, 157, 47, 168, 224, 50, 34, 141, 18, 149, 202, 61, 113, 0, 107, 144, 215, 98, 234, 86, 166, 251, 42, 182, 51, 214, 99, 133, 102, 145, 215, 145, 248, 66, 113, 35, 86, 20, 0, 206, 112, 227, 56, 37, 30, 241, 109, 171, 136, 216, 145, 43, 70, 16, 183, 195, 88, 114, 87, 168, 127, 160, 89, 187, 50, 244, 231, 2, 212, 180, 47, 221, 120, 176, 62, 141, 110, 108, 247, 145, 184, 5, 210, 30, 226, 140, 243, 136, 66, 102, 146, 239 },
+                            Rol = "SUPERVISOR",
                             SucursalId = 1
                         });
                 });

@@ -12,6 +12,7 @@ namespace WendyApp.Shared.Domain
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public DateTime FechaCreacion { get; set; }
+        public decimal Precio { get; set; }
 
         [JsonIgnore]
         public virtual List<InsumoCategoria> Categorias { get; set; }

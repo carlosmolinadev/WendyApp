@@ -12,6 +12,8 @@ namespace WendyApp.Shared.Domain
     {
         public int Id { get; set; }
 
+        public decimal CostoTransporte { get; set; }
+
         [ForeignKey(nameof(Pais))]
         public int PaisId { get; set; }
         public virtual Pais Pais { get; set; }

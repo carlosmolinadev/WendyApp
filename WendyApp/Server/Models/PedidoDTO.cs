@@ -11,7 +11,7 @@ namespace WendyApp.Server.Models
     {
         [JsonIgnore]
         public int PedidoId { get; set; }
-        public double CostoTransporte { get; set; } = 0;
+
         public DateTime FechaEntrega { get; set; }
         public DateTime FechaCreacion { get; set; }
 
