@@ -8,6 +8,6 @@
         public int InsumoId { get; set; }
         public virtual InsumoDTO Insumo { get; set; }
 
-        public double Preciocompra { get; set; }
+        public decimal Precio { get; set; }
     }
 }

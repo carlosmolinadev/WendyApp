@@ -19,7 +19,6 @@ namespace WendyApp.Shared.Domain
         [ForeignKey(nameof(Insumo))]
         public int InsumoId { get; set; }
         public virtual Insumo Insumo { get; set; }
-
-        public double Preciocompra { get; set; }
+        public decimal Precio { get; set; }
     }
 }

@@ -13,6 +13,8 @@ namespace WendyApp.Shared.Domain
         public int Id { get; set; }
         [ForeignKey(nameof(Insumo))]
         public int InsumoId { get; set; }
+        public int Cantidad { get; set; }
+        public decimal Precio { get; set; }
         public virtual Insumo Insumo { get; set; }
 
         [ForeignKey(nameof(Pedido))]
