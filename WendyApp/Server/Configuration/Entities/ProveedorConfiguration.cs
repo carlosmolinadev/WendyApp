@@ -12,7 +12,9 @@ namespace WendyApp.Server.Configuration.Entities
             builder.HasData(
                 new Proveedor
                 {
-                   
+                   ProveedorId= 1,
+                   Nombre = "Super selectos",
+                   Descripcion = "Distribuidor de carnes y pan"
                 }
             );
         }

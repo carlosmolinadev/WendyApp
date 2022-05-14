@@ -13,6 +13,9 @@ namespace WendyApp.Server.Configuration.Entities
             builder.HasData(
                 new InsumoCategoria
                 {
+                    Id = 1,
+                    InsumoId = 1,
+                    CategoriaId = 1
                 }
             );
         }

@@ -35,6 +35,40 @@ namespace WendyApp.Server.Controllers
             _tokenService = tokenService;
         }
 
+        [HttpPost("Autenticar")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<UsuarioCredentialsDTO>> Autenticar([FromBody] CredentialDTO credentialDTO)
+        {
+            if (!ModelState.IsValid)
+            {
+                _logger.LogError($"Invalid validation attempt in {nameof(Autenticar)}");
+                return BadRequest(ModelState);
+            }
+
+            var usuario = await _unitOfWork.Usuarios.Get(q => q.Nickname == credentialDTO.NickName);
+            var sucursal = await _unitOfWork.Sucursales.Get(q => q.SucursalId == usuario.SucursalId, include: q => q.Include(x => x.Pais));
+            var usuarioDTO = _mapper.Map<UsuarioDTO>(usuario);
+            var sucursalDTO = _mapper.Map<SucursalDTO>(sucursal);
+
+            using var hmac = new HMACSHA512(usuario.PasswordSalt);
+
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(credentialDTO.Password));
+
+            for (int i = 0; i < computedHash.Length; i++)
+            {
+                if (computedHash[i] != usuario.Password[i]) return Unauthorized("Invalid Password");
+            }
+
+            return new UsuarioCredentialsDTO
+            {
+                Nickname = usuarioDTO.Nickname,
+                Token = _tokenService.CreateToken(usuarioDTO, sucursalDTO)
+            };
+
+        }
+
         //[HttpGet]
         //// Can be used to override global caching on a particular endpoint at any point. 
         //////[HttpCacheExpiration(CacheLocation = CacheLocation.Public, MaxAge = 60)]
@@ -159,40 +193,6 @@ namespace WendyApp.Server.Controllers
         //    return NoContent();
 
         //}
-
-        [HttpPost("Autenticar")]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<UsuarioCredentialsDTO>> Autenticar([FromBody] CredentialDTO credentialDTO )
-        {
-            if (!ModelState.IsValid)
-            {
-                _logger.LogError($"Invalid validation attempt in {nameof(Autenticar)}");
-                return BadRequest(ModelState);
-            }
-
-            var usuario = await _unitOfWork.Usuarios.Get(q => q.Nickname == credentialDTO.NickName);
-            var sucursal = await _unitOfWork.Sucursales.Get(q => q.SucursalId == usuario.SucursalId, include: q => q.Include(x => x.Pais));
-            var usuarioDTO = _mapper.Map<UsuarioDTO>(usuario);
-            var sucursalDTO = _mapper.Map<SucursalDTO>(sucursal);
-
-            using var hmac = new HMACSHA512(usuario.PasswordSalt);
-
-            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(credentialDTO.Password));
-
-            for (int i = 0; i < computedHash.Length; i++)
-            {
-                if (computedHash[i] != usuario.Password[i]) return Unauthorized("Invalid Password");
-            }
-
-            return new UsuarioCredentialsDTO
-            {
-                Nickname = usuarioDTO.Nickname,
-                Token = _tokenService.CreateToken(usuarioDTO, sucursalDTO)
-            };
-
-        }
     }
     
 }

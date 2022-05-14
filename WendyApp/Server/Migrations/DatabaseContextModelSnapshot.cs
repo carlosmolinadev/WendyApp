@@ -38,6 +38,11 @@ namespace WendyApp.Server.Migrations
                         {
                             CategoriaId = 1,
                             Nombre = "Vegetales"
+                        },
+                        new
+                        {
+                            CategoriaId = 2,
+                            Nombre = "Carnes"
                         });
                 });
 
@@ -100,12 +105,18 @@ namespace WendyApp.Server.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<decimal>("Precio")
-                        .HasColumnType("DECIMAL(18, 2)");
-
                     b.HasKey("InsumoId");
 
                     b.ToTable("Insumos");
+
+                    b.HasData(
+                        new
+                        {
+                            InsumoId = 1,
+                            Descripcion = "Precio por libra",
+                            FechaCreacion = new DateTime(2022, 5, 13, 21, 38, 27, 643, DateTimeKind.Local).AddTicks(1760),
+                            Nombre = "Tomate"
+                        });
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.InsumoCategoria", b =>
@@ -128,6 +139,14 @@ namespace WendyApp.Server.Migrations
                     b.HasIndex("InsumoId");
 
                     b.ToTable("InsumosCategorias");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoriaId = 1,
+                            InsumoId = 1
+                        });
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Pais", b =>
@@ -185,6 +204,15 @@ namespace WendyApp.Server.Migrations
                     b.HasIndex("ProveedorId");
 
                     b.ToTable("PaisesProveedores");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CostoTransporte = 2.0m,
+                            PaisId = 1,
+                            ProveedorId = 1
+                        });
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Pedido", b =>
@@ -267,6 +295,15 @@ namespace WendyApp.Server.Migrations
                     b.HasKey("ProveedorId");
 
                     b.ToTable("Proveedores");
+
+                    b.HasData(
+                        new
+                        {
+                            ProveedorId = 1,
+                            Descripcion = "Distribuidor de carnes y pan",
+                            FechaCreacion = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nombre = "Super selectos"
+                        });
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.ProveedorInsumo", b =>
@@ -292,6 +329,15 @@ namespace WendyApp.Server.Migrations
                     b.HasIndex("ProveedorId");
 
                     b.ToTable("ProveedoresInsumos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            InsumoId = 1,
+                            Precio = 0.3m,
+                            ProveedorId = 1
+                        });
                 });
 
             modelBuilder.Entity("WendyApp.Shared.Domain.Sucursal", b =>
@@ -324,7 +370,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 1,
                             Direccion = "Metrocentro 8va etapa",
-                            FechaCreacion = new DateTime(2022, 5, 13, 7, 49, 47, 234, DateTimeKind.Local).AddTicks(5033),
+                            FechaCreacion = new DateTime(2022, 5, 13, 21, 38, 27, 638, DateTimeKind.Local).AddTicks(2049),
                             Nombre = "Sucursal Metrocentro",
                             PaisId = 1
                         });
@@ -367,8 +413,8 @@ namespace WendyApp.Server.Migrations
                             UsuarioId = 1,
                             Email = "usuario_admin@wendy.com",
                             Nickname = "admin",
-                            Password = new byte[] { 213, 4, 3, 13, 5, 62, 10, 130, 4, 60, 30, 157, 33, 78, 43, 25, 153, 222, 134, 50, 115, 239, 136, 193, 222, 201, 212, 121, 25, 250, 195, 14, 107, 50, 152, 33, 147, 119, 210, 171, 141, 48, 125, 236, 135, 9, 16, 215, 215, 34, 221, 226, 190, 31, 251, 174, 165, 168, 234, 90, 117, 10, 101, 32 },
-                            PasswordSalt = new byte[] { 250, 10, 48, 46, 124, 120, 139, 58, 9, 103, 200, 233, 227, 230, 172, 35, 90, 91, 78, 100, 88, 167, 82, 235, 142, 40, 62, 194, 204, 9, 236, 223, 43, 82, 76, 173, 176, 157, 47, 168, 224, 50, 34, 141, 18, 149, 202, 61, 113, 0, 107, 144, 215, 98, 234, 86, 166, 251, 42, 182, 51, 214, 99, 133, 102, 145, 215, 145, 248, 66, 113, 35, 86, 20, 0, 206, 112, 227, 56, 37, 30, 241, 109, 171, 136, 216, 145, 43, 70, 16, 183, 195, 88, 114, 87, 168, 127, 160, 89, 187, 50, 244, 231, 2, 212, 180, 47, 221, 120, 176, 62, 141, 110, 108, 247, 145, 184, 5, 210, 30, 226, 140, 243, 136, 66, 102, 146, 239 },
+                            Password = new byte[] { 138, 2, 229, 189, 81, 61, 141, 153, 139, 133, 138, 130, 113, 211, 124, 185, 28, 17, 45, 17, 109, 165, 214, 176, 80, 246, 116, 185, 138, 50, 253, 215, 182, 28, 94, 98, 14, 31, 157, 242, 231, 37, 34, 130, 236, 196, 112, 4, 81, 184, 216, 43, 79, 169, 253, 120, 1, 103, 133, 170, 88, 251, 13, 174 },
+                            PasswordSalt = new byte[] { 166, 35, 127, 98, 213, 174, 134, 102, 195, 65, 190, 130, 131, 92, 38, 246, 207, 227, 238, 207, 137, 8, 175, 15, 212, 86, 71, 91, 110, 146, 71, 186, 126, 111, 60, 58, 10, 174, 79, 199, 72, 68, 40, 191, 183, 0, 37, 27, 184, 149, 111, 200, 123, 156, 158, 22, 219, 224, 192, 213, 23, 167, 68, 7, 100, 102, 11, 200, 144, 46, 250, 47, 64, 242, 186, 166, 90, 198, 13, 162, 205, 49, 202, 38, 254, 194, 9, 190, 211, 153, 250, 248, 21, 96, 168, 90, 168, 172, 83, 163, 35, 52, 251, 175, 194, 45, 232, 224, 11, 78, 14, 57, 69, 54, 227, 9, 12, 42, 138, 63, 117, 7, 182, 35, 26, 209, 151, 16 },
                             Rol = "ADMIN",
                             SucursalId = 1
                         },
@@ -377,8 +423,8 @@ namespace WendyApp.Server.Migrations
                             UsuarioId = 2,
                             Email = "carlos_molina@wendy.com",
                             Nickname = "carmolina",
-                            Password = new byte[] { 213, 4, 3, 13, 5, 62, 10, 130, 4, 60, 30, 157, 33, 78, 43, 25, 153, 222, 134, 50, 115, 239, 136, 193, 222, 201, 212, 121, 25, 250, 195, 14, 107, 50, 152, 33, 147, 119, 210, 171, 141, 48, 125, 236, 135, 9, 16, 215, 215, 34, 221, 226, 190, 31, 251, 174, 165, 168, 234, 90, 117, 10, 101, 32 },
-                            PasswordSalt = new byte[] { 250, 10, 48, 46, 124, 120, 139, 58, 9, 103, 200, 233, 227, 230, 172, 35, 90, 91, 78, 100, 88, 167, 82, 235, 142, 40, 62, 194, 204, 9, 236, 223, 43, 82, 76, 173, 176, 157, 47, 168, 224, 50, 34, 141, 18, 149, 202, 61, 113, 0, 107, 144, 215, 98, 234, 86, 166, 251, 42, 182, 51, 214, 99, 133, 102, 145, 215, 145, 248, 66, 113, 35, 86, 20, 0, 206, 112, 227, 56, 37, 30, 241, 109, 171, 136, 216, 145, 43, 70, 16, 183, 195, 88, 114, 87, 168, 127, 160, 89, 187, 50, 244, 231, 2, 212, 180, 47, 221, 120, 176, 62, 141, 110, 108, 247, 145, 184, 5, 210, 30, 226, 140, 243, 136, 66, 102, 146, 239 },
+                            Password = new byte[] { 138, 2, 229, 189, 81, 61, 141, 153, 139, 133, 138, 130, 113, 211, 124, 185, 28, 17, 45, 17, 109, 165, 214, 176, 80, 246, 116, 185, 138, 50, 253, 215, 182, 28, 94, 98, 14, 31, 157, 242, 231, 37, 34, 130, 236, 196, 112, 4, 81, 184, 216, 43, 79, 169, 253, 120, 1, 103, 133, 170, 88, 251, 13, 174 },
+                            PasswordSalt = new byte[] { 166, 35, 127, 98, 213, 174, 134, 102, 195, 65, 190, 130, 131, 92, 38, 246, 207, 227, 238, 207, 137, 8, 175, 15, 212, 86, 71, 91, 110, 146, 71, 186, 126, 111, 60, 58, 10, 174, 79, 199, 72, 68, 40, 191, 183, 0, 37, 27, 184, 149, 111, 200, 123, 156, 158, 22, 219, 224, 192, 213, 23, 167, 68, 7, 100, 102, 11, 200, 144, 46, 250, 47, 64, 242, 186, 166, 90, 198, 13, 162, 205, 49, 202, 38, 254, 194, 9, 190, 211, 153, 250, 248, 21, 96, 168, 90, 168, 172, 83, 163, 35, 52, 251, 175, 194, 45, 232, 224, 11, 78, 14, 57, 69, 54, 227, 9, 12, 42, 138, 63, 117, 7, 182, 35, 26, 209, 151, 16 },
                             Rol = "SUPERVISOR",
                             SucursalId = 1
                         });

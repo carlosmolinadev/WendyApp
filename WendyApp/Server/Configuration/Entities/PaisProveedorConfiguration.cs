@@ -11,6 +11,10 @@ namespace WendyApp.Server.Configuration.Entities
             builder.HasData(
                 new PaisProveedor
                 {
+                    Id = 1,
+                    CostoTransporte = 2.0m,
+                    PaisId = 1,
+                    ProveedorId = 1
                 }
             );
         }
