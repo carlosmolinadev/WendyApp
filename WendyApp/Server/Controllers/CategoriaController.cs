@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,9 +30,6 @@ namespace WendyApp.Server.Controllers
         }
 
         [HttpGet]
-        // Can be used to override global caching on a particular endpoint at any point. 
-        ////[HttpCacheExpiration(CacheLocation = CacheLocation.Public, MaxAge = 60)]
-        ////[HttpCacheValidation(MustRevalidate = false)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetCategorias()
@@ -41,104 +39,104 @@ namespace WendyApp.Server.Controllers
             return Ok(results);
         }
 
-        [HttpGet("{id:int}", Name = "GetCategoria")]
-        ////[ResponseCache(CacheProfileName = "120SecondsDuration")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetCategoria(int id)
-        {
-            var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id);
-            var insumosCategorias = await _unitOfWork.InsumosCategorias.GetAll(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumo));
-            var insumos = new List<InsumoDTO>();
+        //[HttpGet("{id:int}", Name = "GetCategoria")]
+        //////[ResponseCache(CacheProfileName = "120SecondsDuration")]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //public async Task<IActionResult> GetCategoria(int id)
+        //{
+        //    var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id);
+        //    var insumosCategorias = await _unitOfWork.InsumosCategorias.GetAll(q => q.CategoriaId == id, include: q => q.Include(x => x.Insumo));
+        //    var insumos = new List<InsumoDTO>();
 
-            foreach (var item in insumosCategorias)
-            {
-                var insumo = _mapper.Map<InsumoDTO>(item.Insumo);
-                insumos.Add(insumo);
-            }
+        //    foreach (var item in insumosCategorias)
+        //    {
+        //        var insumo = _mapper.Map<InsumoDTO>(item.Insumo);
+        //        insumos.Add(insumo);
+        //    }
 
-            var categoriaDTO = new CategoriaDTO { CategoriaId = categoria.CategoriaId, Nombre = categoria.Nombre, Insumos = insumos };
+        //    var categoriaDTO = new CategoriaDTO { CategoriaId = categoria.CategoriaId, Nombre = categoria.Nombre, Insumos = insumos };
 
-            var result = _mapper.Map<CategoriaDTO>(categoria);
+        //    var result = _mapper.Map<CategoriaDTO>(categoria);
 
-            return Ok(result);
-        }
+        //    return Ok(result);
+        //}
 
-        //[Authorize(Roles = "Administrator")]
-        [HttpPost]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateCategoria([FromBody] CategoriaDTO categoriaDTO)
-        {
-            if (!ModelState.IsValid)
-            {
-                _logger.LogError($"Invalid POST attempt in {nameof(CreateCategoria)}");
-                return BadRequest(ModelState);
-            }
+        ////[Authorize(Roles = "Administrator")]
+        //[HttpPost]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status201Created)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //public async Task<IActionResult> CreateCategoria([FromBody] CategoriaDTO categoriaDTO)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        _logger.LogError($"Invalid POST attempt in {nameof(CreateCategoria)}");
+        //        return BadRequest(ModelState);
+        //    }
 
-            var categoria = _mapper.Map<Categoria>(categoriaDTO);
-            await _unitOfWork.Categorias.Insert(categoria);
-            await _unitOfWork.Save();
+        //    var categoria = _mapper.Map<Categoria>(categoriaDTO);
+        //    await _unitOfWork.Categorias.Insert(categoria);
+        //    await _unitOfWork.Save();
 
-            return CreatedAtRoute("GetCategoria", new { id = categoria.CategoriaId }, categoria);
+        //    return CreatedAtRoute("GetCategoria", new { id = categoria.CategoriaId }, categoria);
 
-        }
+        //}
 
-        //[Authorize]
-        [HttpPut("{id:int}")]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> UpdateCategoria(int id, [FromBody] CategoriaDTO categoriaDTO)
-        {
-            if (!ModelState.IsValid || id < 1)
-            {
-                _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateCategoria)}");
-                return BadRequest(ModelState);
-            }
+        ////[Authorize]
+        //[HttpPut("{id:int}")]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status204NoContent)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //public async Task<IActionResult> UpdateCategoria(int id, [FromBody] CategoriaDTO categoriaDTO)
+        //{
+        //    if (!ModelState.IsValid || id < 1)
+        //    {
+        //        _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateCategoria)}");
+        //        return BadRequest(ModelState);
+        //    }
 
-            var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id);
-            if (categoria == null)
-            {
-                _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateCategoria)}");
-                return BadRequest("Submitted data is invalid");
-            }
+        //    var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id);
+        //    if (categoria == null)
+        //    {
+        //        _logger.LogError($"Invalid UPDATE attempt in {nameof(UpdateCategoria)}");
+        //        return BadRequest("Submitted data is invalid");
+        //    }
 
-            _mapper.Map(categoriaDTO, categoria);
-            _unitOfWork.Categorias.Update(categoria);
-            await _unitOfWork.Save();
+        //    _mapper.Map(categoriaDTO, categoria);
+        //    _unitOfWork.Categorias.Update(categoria);
+        //    await _unitOfWork.Save();
 
-            return NoContent();
+        //    return NoContent();
 
-        }
+        //}
 
-        //[Authorize]
-        [HttpDelete("{id:int}")]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> DeleteCategoria(int id)
-        {
-            if (id < 1)
-            {
-                _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteCategoria)}");
-                return BadRequest();
-            }
+        ////[Authorize]
+        //[HttpDelete("{id:int}")]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status204NoContent)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //public async Task<IActionResult> DeleteCategoria(int id)
+        //{
+        //    if (id < 1)
+        //    {
+        //        _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteCategoria)}");
+        //        return BadRequest();
+        //    }
 
-            var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id);
-            if (categoria == null)
-            {
-                _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteCategoria)}");
-                return BadRequest("Submitted data is invalid");
-            }
+        //    var categoria = await _unitOfWork.Categorias.Get(q => q.CategoriaId == id);
+        //    if (categoria == null)
+        //    {
+        //        _logger.LogError($"Invalid DELETE attempt in {nameof(DeleteCategoria)}");
+        //        return BadRequest("Submitted data is invalid");
+        //    }
 
-            await _unitOfWork.Categorias.Delete(id);
-            await _unitOfWork.Save();
+        //    await _unitOfWork.Categorias.Delete(id);
+        //    await _unitOfWork.Save();
 
-            return NoContent();
+        //    return NoContent();
 
-        }
+        //}
     }
     
 }

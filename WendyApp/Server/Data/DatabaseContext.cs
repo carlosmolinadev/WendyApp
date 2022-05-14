@@ -55,16 +55,16 @@ namespace Wendy.Server.Data
             modelBuilder.ApplyConfiguration(new PaisConfiguration());
             modelBuilder.ApplyConfiguration(new SucursalConfiguration());
             modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
+            modelBuilder.ApplyConfiguration(new ProveedorConfiguration());
             modelBuilder.ApplyConfiguration(new CategoriaConfiguration());
-            //modelBuilder.ApplyConfiguration(new ProveedorConfiguration());
+            modelBuilder.ApplyConfiguration(new InsumoConfiguration());
+            modelBuilder.ApplyConfiguration(new InsumoCategoriaConfiguration());
+            modelBuilder.ApplyConfiguration(new PaisProveedorConfiguration());
+            modelBuilder.ApplyConfiguration(new ProveedorInsumoConfiguration());
             //modelBuilder.ApplyConfiguration(new EstadoPedidoConfiguration());
             //modelBuilder.ApplyConfiguration(new HistorialPedidoConfiguration());
-            //modelBuilder.ApplyConfiguration(new InsumoCategoriaConfiguration());
-            //modelBuilder.ApplyConfiguration(new PaisProveedorConfiguration());
             //modelBuilder.ApplyConfiguration(new PedidoConfiguration());
             //modelBuilder.ApplyConfiguration(new PedidoInsumoConfiguration());
-            //modelBuilder.ApplyConfiguration(new ProveedorConfiguration());
-            //modelBuilder.ApplyConfiguration(new ProveedorInsumoConfiguration());
 
         }
 

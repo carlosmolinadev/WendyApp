@@ -16,6 +16,11 @@ namespace WendyApp.Server.Configuration.Entities
                 {
                     CategoriaId = 1,
                     Nombre = "Vegetales"
+                },
+                new Categoria
+                {
+                    CategoriaId = 2,
+                    Nombre = "Carnes"
                 }
             );
         }

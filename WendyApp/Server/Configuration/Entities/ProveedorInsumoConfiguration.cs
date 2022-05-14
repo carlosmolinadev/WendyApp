@@ -16,7 +16,10 @@ namespace WendyApp.Server.Configuration.Entities
             builder.HasData(
                 new ProveedorInsumo
                 {
-                   
+                   Id = 1,
+                   ProveedorId = 1,
+                   InsumoId = 1,
+                   Precio = (decimal) 0.30
                 }
             );
         }

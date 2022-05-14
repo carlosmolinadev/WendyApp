@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -34,25 +35,22 @@ namespace WendyApp.Server.Services
                                             pais = sucursalDTO.pais.Nombre,
             };
 
-            var claims = new List<Claim>
-            {
-                new Claim("nickName", usuarioDTO.Nickname),
-                new Claim("rol", usuarioDTO.Rol),
-                new Claim("email", usuarioDTO.Email),
-                new Claim("sucursal", JsonConvert.SerializeObject(sucursal), IdentityServerConstants.ClaimValueTypes.Json)
-            };
-
             var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(1),
-                SigningCredentials = credentials,
-            };
+            var signingCredentials = credentials;
+
+            //var nbf = DateTime.UtcNow.AddSeconds(-1);
+            //var exp = DateTime.UtcNow.AddSeconds(86400);
+            var payload = new JwtPayload(null, "", new List<Claim>(), null, null);
+
+            payload.Add("usuarioId", usuarioDTO.UsuarioId);
+            payload.Add("nickName", usuarioDTO.Nickname);
+            payload.Add("rol", usuarioDTO.Rol);
+            payload.Add("email", usuarioDTO.Email);
+            payload.Add("sucursal", sucursal);
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-                
+            var token = new JwtSecurityToken(new JwtHeader(signingCredentials), payload);
+
             return tokenHandler.WriteToken(token);
         }
 
@@ -80,3 +78,52 @@ namespace WendyApp.Server.Services
 
 
 }
+
+
+
+
+
+//var claims = new List<Claim>
+//{
+//    new Claim("nickName", usuarioDTO.Nickname),
+//    new Claim("rol", usuarioDTO.Rol),
+//    new Claim("email", usuarioDTO.Email),
+//    //new Claim("sucursal", JsonConvert.SerializeObject(sucursal), IdentityServerConstants.ClaimValueTypes.Json)
+//};
+
+//var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512);
+//var tokenDescriptor = new SecurityTokenDescriptor
+//{
+//    Subject = new ClaimsIdentity(claims),
+//    Expires = DateTime.Now.AddDays(1),
+//    SigningCredentials = credentials,
+//};
+
+//var tokenHandler = new JwtSecurityTokenHandler();
+//var token = tokenHandler.CreateToken(tokenDescriptor);
+
+//return tokenHandler.WriteToken(token);
+
+
+
+//var keybytes = Convert.FromBase64String(YOUR_CLIENT_SECRET);
+//var signingCredentials = new SigningCredentials(
+//            new InMemorySymmetricSecurityKey(keybytes),
+//            SecurityAlgorithms.HmacSha256Signature,
+//            SecurityAlgorithms.Sha256Digest);
+
+//var nbf = DateTime.UtcNow.AddSeconds(-1);
+//var exp = DateTime.UtcNow.AddSeconds(120);
+//var payload = new JwtPayload(null, "", new List<Claim>(), nbf, exp);
+
+//var users = new Dictionary<string, object>();
+//users.Add("actions", new List<string>() { "read", "create" });
+//var scopes = new Dictionary<string, object>();
+//scopes.Add("users", users);
+//payload.Add("scopes", scopes);
+
+//var jwtToken = new JwtSecurityToken(new JwtHeader(signingCredentials), payload);
+//var jwtTokenHandler = new JwtSecurityTokenHandler();
+//return jwtTokenHandler.WriteToken(jwtToken);
+
+

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WendyApp.Server.Interfaces.IRepository;
@@ -38,6 +39,27 @@ namespace WendyApp.Server.Controllers
             var proveedores = await _unitOfWork.Proveedores.GetAll();
             var results = _mapper.Map<List<ProveedorDTO>>(proveedores);
             return Ok(results);
+        }
+
+        [HttpGet("{proveedorId:int}/insumo")]
+        ////[ResponseCache(CacheProfileName = "120SecondsDuration")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> InsumoProveedor(int proveedorId, string categoria)
+        {
+            var categoriaArray = new List<int>();
+            if (categoria != null)
+            {
+                var categoriaSplit = categoria.Split(",");
+                foreach (var item in categoriaSplit)
+                {
+                    var id = Int16.Parse(item);
+                    categoriaArray.Add(id);
+                }
+            }
+            //var insumo = await _unitOfWork.Proveedores.Get(q => q.ProveedorId == id); //, include: q => q.Include(x => x.Sucursales)
+            //var result = _mapper.Map<ProveedorDTO>(insumo);
+            return Ok();
         }
 
         [HttpGet("{id:int}", Name = "GetProveedor")]
