@@ -62,6 +62,8 @@ namespace WendyApp.Server.Controllers
         public async Task<IActionResult> InsumoProveedor(int proveedorId, string categoria)
         {
             var categoriaArray = new List<InsumoCategoria>();
+            var proveedoresInsumos = (List<ProveedorInsumo>)await _unitOfWork.ProveedoresInsumos.GetAll(q => q.Proveedor.ProveedorId == proveedorId, include: q => q.Include(x => x.Insumo)); //, include: q => q.Include(x => x.Sucursales)
+            var result = new List<ReturnInsumoDTO>();
 
             if (!string.IsNullOrEmpty(categoria))
             {
@@ -75,18 +77,25 @@ namespace WendyApp.Server.Controllers
                     }
                     
                 }
-            }
+                foreach (var item in proveedoresInsumos)
+                {
+                    var insumoEncontrado = categoriaArray.Find(c => c.InsumoId == item.InsumoId);
 
-            var proveedoresInsumos = (List<ProveedorInsumo>) await _unitOfWork.ProveedoresInsumos.GetAll(q => q.Proveedor.ProveedorId == proveedorId, include: q => q.Include(x => x.Insumo)); //, include: q => q.Include(x => x.Sucursales)
-
-            var result = new List<ReturnInsumoDTO>();
-
-            foreach (var item in proveedoresInsumos)
+                    if (insumoEncontrado != null)
+                    {
+                        var localInsumo = new ReturnInsumoDTO
+                        {
+                            InsumoId = item.InsumoId,
+                            Nombre = item.Insumo.Nombre,
+                            Descripcion = item.Insumo.Descripcion,
+                            Precio = item.Precio,
+                        };
+                        result.Add(localInsumo);
+                    }
+                }
+            } else
             {
-
-                var insumoEncontrado = categoriaArray.Find(c => c.InsumoId == item.InsumoId);
-
-                if (insumoEncontrado != null)
+                foreach (var item in proveedoresInsumos)
                 {
                     var localInsumo = new ReturnInsumoDTO
                     {
