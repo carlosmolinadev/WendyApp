@@ -12,7 +12,7 @@ namespace WendyApp.Shared.Domain
         public int ProveedorId { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public DateTime FechaCreacion { get; set; }
+        public DateTime FechaCreacion { get; set; } = DateTime.Now;
 
         [JsonIgnore]
         public virtual List<PaisProveedor> Paises { get; set; }

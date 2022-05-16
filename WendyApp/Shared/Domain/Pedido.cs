@@ -22,7 +22,7 @@ namespace WendyApp.Shared.Domain
         public Sucursal Sucursal { get; set; }
 
         [ForeignKey(nameof(EstadoPedido))]
-        public int EstadoPedidosId { get; set; }
+        public int EstadoPedidoId { get; set; }
         public EstadoPedido EstadoPedidos { get; set; }
 
         [JsonIgnore]

@@ -20,4 +20,22 @@ namespace WendyApp.Server.Models
         [JsonIgnore]
         public virtual List<InsumoDTO> Insumos { get; set; }
     }
+
+    public class ReturnProveedorDTO
+    {
+        [JsonIgnore]
+        public int ProveedorId { get; set; }
+        public string Nombre { get; set; }
+    }
+
+    public class ReturnProveedorDetailsDTO
+    {
+        public int ProveedorId { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public string Pais { get; set; }
+        public decimal CostoTransporte { get; set; }
+
+    }
 }

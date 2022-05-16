@@ -14,6 +14,13 @@ namespace WendyApp.Server.Configuration.Entities
             builder.HasData(
                 new EstadoPedido
                 {
+                    EstadoPedidoId = 1,
+                    Estado = "Pendiente"
+                },
+                new EstadoPedido
+                {
+                    EstadoPedidoId = 2,
+                    Estado = "Orden Generada"
                 }
             );
         }
