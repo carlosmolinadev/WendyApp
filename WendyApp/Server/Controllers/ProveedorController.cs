@@ -63,7 +63,7 @@ namespace WendyApp.Server.Controllers
         {
             var categoriaArray = new List<InsumoCategoria>();
 
-            if (categoria != null)
+            if (!string.IsNullOrEmpty(categoria))
             {
                 var categoriaSplit = categoria.Split(",");
                 foreach (var item in categoriaSplit)
