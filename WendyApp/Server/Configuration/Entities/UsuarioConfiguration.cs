@@ -25,16 +25,16 @@ namespace WendyApp.Server.Configuration.Entities
             var generatedPassword = CreatePassword("Password1#");
 
             builder.HasData(
-                new Usuario
-                {
-                    UsuarioId = 1,
-                    Nickname = "admin",
-                    Password = generatedPassword.Password,
-                    PasswordSalt = generatedPassword.PasswordSalt,
-                    Email = "usuario_admin@wendy.com",
-                    Rol = "ADMIN",
-                    SucursalId = 1
-                },
+                       new Usuario
+                       {
+                           UsuarioId = 1,
+                           Nickname = "admin",
+                           Password = generatedPassword.Password,
+                           PasswordSalt = generatedPassword.PasswordSalt,
+                           Email = "usuario_admin@wendy.com",
+                           Rol = "ADMIN",
+                           SucursalId = 1
+                       },
                 new Usuario
                 {
                     UsuarioId = 2,
@@ -44,6 +44,36 @@ namespace WendyApp.Server.Configuration.Entities
                     Email = "carlos_molina@wendy.com",
                     Rol = "SUPERVISOR",
                     SucursalId = 1
+                },
+                new Usuario
+                {
+                    UsuarioId = 3,
+                    Nickname = "erisaravia",
+                    Password = generatedPassword.Password,
+                    PasswordSalt = generatedPassword.PasswordSalt,
+                    Email = "sa18004@ues.edu.sv",
+                    Rol = "SUPERVISOR",
+                    SucursalId = 2
+                },
+                new Usuario
+                {
+                    UsuarioId = 4,
+                    Nickname = "eligarcia",
+                    Password = generatedPassword.Password,
+                    PasswordSalt = generatedPassword.PasswordSalt,
+                    Email = "gh06007@ues.edu.sv",
+                    Rol = "SUPERVISOR",
+                    SucursalId = 3
+                },
+                new Usuario
+                {
+                    UsuarioId = 5,
+                    Nickname = "efrgomez",
+                    Password = generatedPassword.Password,
+                    PasswordSalt = generatedPassword.PasswordSalt,
+                    Email = "gf18005@ues.edu.sv",
+                    Rol = "SUPERVISOR",
+                    SucursalId = 4
                 }
             );
         }

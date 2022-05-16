@@ -2,9 +2,14 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using WendyApp.Server.Interfaces.IRepository;
 using WendyApp.Server.Models;
@@ -19,13 +24,15 @@ namespace WendyApp.Server.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<PedidoController> _logger;
         private readonly IMapper _mapper;
+        private readonly IConfiguration Configuration;
 
         public PedidoController(IUnitOfWork unitOfWork, ILogger<PedidoController> logger,
-            IMapper mapper)
+            IMapper mapper, IConfiguration configuration)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
             _mapper = mapper;
+            Configuration = configuration;
         }
 
         [HttpGet("{pedidoId:int}/Historial")]
@@ -171,6 +178,8 @@ namespace WendyApp.Server.Controllers
                 result.Add(pedidoActual);
             }
 
+            result = result.OrderBy(p => p.PedidoId).ToList();
+
             return Ok(result);
         }
 
@@ -283,7 +292,6 @@ namespace WendyApp.Server.Controllers
 
 
         [HttpPost]
-        ////[ResponseCache(CacheProfileName = "120SecondsDuration")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> CreatePedido([FromBody] CreatePedidoDTO pedido)
@@ -293,6 +301,7 @@ namespace WendyApp.Server.Controllers
                 _logger.LogError($"Invalid POST attempt in {nameof(CreatePedido)}");
                 return BadRequest(ModelState);
             }
+
             var proveedor = await _unitOfWork.Proveedores.Get(q => q.ProveedorId == pedido.ProveedorId);
             var sucursal = await _unitOfWork.Sucursales.Get(q => q.SucursalId == pedido.SucursalId);
             var paisesProveedores = await _unitOfWork.PaisesProveedores.Get(q => q.Pais.PaisId == sucursal.PaisId && q.Proveedor.ProveedorId == proveedor.ProveedorId);
@@ -332,6 +341,18 @@ namespace WendyApp.Server.Controllers
                 pedidoInsumoList.Add(localPedido);
             }
 
+            var descripcion = $"Estado de la orden {id} ha sido modificado a Enviada";
+
+            var historialPedido = new HistorialPedido
+            {
+                FechaCreacion = DateTime.Now,
+                Descripcion = descripcion,
+                PedidoId = id,
+                EstadoPedidoId = 1
+            };
+
+            await _unitOfWork.HistorialPedidos.Insert(historialPedido);
+
             var pedidoInsumo = _mapper.Map<List<PedidoInsumo>>(pedidoInsumoList);
             await _unitOfWork.PedidosInsumos.InsertRange(pedidoInsumo);
             await _unitOfWork.Save();
@@ -341,7 +362,7 @@ namespace WendyApp.Server.Controllers
                 PedidoId = id,
                 Proveedor = new ReturnProveedorDTO { ProveedorId = proveedor.ProveedorId, Nombre = proveedor.Nombre },
                 Sucursal = new ReturnSucursalDTO { SucursalId = sucursal.SucursalId, Nombre = sucursal.Nombre },
-                Estado = new ReturnEstadoPedidoDTO { EstadoPedidoId = 1, Estado = "Enviada" },
+                Estado = new ReturnEstadoPedidoDTO { EstadoPedidoId = 1, Estado = "Enviada", FechaCreacion = DateTime.Now },
                 FechaCreacion = pedidoCreated.FechaCreacion,
                 FechaEntrega = pedidoCreated.FechaEntrega,
                 CostoPedido = costoPedido,

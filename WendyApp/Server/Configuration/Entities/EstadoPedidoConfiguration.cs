@@ -15,12 +15,27 @@ namespace WendyApp.Server.Configuration.Entities
                 new EstadoPedido
                 {
                     EstadoPedidoId = 1,
-                    Estado = "Pendiente"
+                    Estado = "Enviada"
                 },
                 new EstadoPedido
                 {
                     EstadoPedidoId = 2,
-                    Estado = "Orden Generada"
+                    Estado = "Aprobada"
+                },
+                new EstadoPedido
+                {
+                    EstadoPedidoId = 3,
+                    Estado = "Despachada"
+                },
+                new EstadoPedido
+                {
+                    EstadoPedidoId = 4,
+                    Estado = "Cancelada"
+                },
+                new EstadoPedido
+                {
+                    EstadoPedidoId = 5,
+                    Estado = "Recibida"
                 }
             );
         }
