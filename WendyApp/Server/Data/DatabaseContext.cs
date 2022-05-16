@@ -62,6 +62,7 @@ namespace Wendy.Server.Data
             modelBuilder.ApplyConfiguration(new PaisProveedorConfiguration());
             modelBuilder.ApplyConfiguration(new ProveedorInsumoConfiguration());
             modelBuilder.ApplyConfiguration(new EstadoPedidoConfiguration());
+
             //modelBuilder.ApplyConfiguration(new HistorialPedidoConfiguration());
             //modelBuilder.ApplyConfiguration(new PedidoConfiguration());
             //modelBuilder.ApplyConfiguration(new PedidoInsumoConfiguration());
