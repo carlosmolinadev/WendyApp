@@ -54,6 +54,7 @@ namespace WendyApp.Server.Models
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public virtual List<ReturnEstadoPedidoDTO> Historial { get; set; }
+        public decimal CostoTransporte { get; set; }
         public decimal CostoPedido  { get; set; }
         public decimal Total { get; set; }
     }

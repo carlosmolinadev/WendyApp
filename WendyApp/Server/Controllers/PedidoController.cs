@@ -73,48 +73,103 @@ namespace WendyApp.Server.Controllers
             var sucursal = (List<Sucursal>) await _unitOfWork.Sucursales.GetAll();
             var paisesProveedores = (List<PaisProveedor>) await _unitOfWork.PaisesProveedores.GetAll();
             var estadoPedidos = (List<EstadoPedido>) await _unitOfWork.EstadoPedidos.GetAll();
-            var costoTransporte = 0m;
-            var costoPedido = 0m;
-            var costoTotal = 0m;
             var result = new List<ReturnPedidoDTO>();
 
-            if (string.IsNullOrEmpty(proveedorId) && string.IsNullOrEmpty(estadoId))
+            var filteredPedidos = new List<Pedido>();
+
+            if (!string.IsNullOrEmpty(proveedorId) && !string.IsNullOrEmpty(estadoId))
+            {
+                var localPedidos = new List<Pedido>();
+                var estadoSplit = estadoId.Split(",");
+                var estadoIdList = new List<int>();
+
+                pedidos.ForEach(item =>
+                {
+                    if (item.ProveedorId == Int16.Parse(proveedorId))
+                    {
+                        localPedidos.Add(item);
+                    }
+                });
+
+                var finalPedidosList = new List<Pedido>();
+
+                foreach (var estado in estadoSplit) { estadoIdList.Add(Int16.Parse(estado)); }
+
+                foreach (var item in localPedidos)
+                {
+                    if (estadoIdList.Contains(item.EstadoPedidoId))
+                    {
+                        finalPedidosList.Add(item);
+                    };
+                }
+
+                filteredPedidos = finalPedidosList;
+            }
+            else if (!string.IsNullOrEmpty(proveedorId))
+            {
+
+                var localPedidos = new List<Pedido>();
+                pedidos.ForEach(item =>
+                {
+                    if (item.ProveedorId == Int16.Parse(proveedorId))
+                    {
+                        localPedidos.Add(item);
+                    }
+                });
+                filteredPedidos = localPedidos;
+            } else if (!string.IsNullOrEmpty(estadoId))
+            {
+                var estadoSplit = estadoId.Split(",");
+                var estadoIdList = new List<int>();
+                foreach (var estado in estadoSplit) { estadoIdList.Add(Int16.Parse(estado)); }
+
+                foreach (var item in pedidos)
+                {
+                    if (estadoIdList.Contains(item.EstadoPedidoId))
+                    {
+                        filteredPedidos.Add(item);
+                    };
+                }
+            }
+            else
+            {
+                filteredPedidos = pedidos;
+            }
+            
+            foreach (var pedido in filteredPedidos)
             {
                 var pedidoActual = new ReturnPedidoDTO();
-                foreach (var pedido in pedidos)
+                var costoPedido = 0m;
+                var costoTotal = 0m;
+
+                var p = proveedor.Find(p => p.ProveedorId == pedido.ProveedorId);
+                pedidoActual.Proveedor = new ReturnProveedorDTO { ProveedorId = p.ProveedorId, Nombre = p.Nombre };
+
+                var s = sucursal.Find(s => s.SucursalId == pedido.SucursalId);
+                pedidoActual.Sucursal = new ReturnSucursalDTO { SucursalId = s.SucursalId, Nombre = s.Nombre };
+
+                var e = estadoPedidos.Find(e => e.EstadoPedidoId == pedido.EstadoPedidoId);
+                pedidoActual.Estado = new ReturnEstadoPedidoDTO { EstadoPedidoId = e.EstadoPedidoId, Estado = e.Estado };
+
+                var pp = paisesProveedores.Find(pp => pp.ProveedorId == pedidoActual.Proveedor.ProveedorId);
+                pedidoActual.CostoTransporte = pp.CostoTransporte;
+
+                var localPedidoInsumo = pedidosInsumo.FindAll(item => item.PedidoId == pedido.PedidoId);
+                foreach (var pi in localPedidoInsumo)
                 {
-                    var localSucursal = new Sucursal();
-
-
-                    pedidoActual.PedidoId = pedido.PedidoId;
-                    pedidoActual.FechaCreacion = pedido.FechaCreacion;
-                    pedidoActual.FechaEntrega = pedido.FechaEntrega;
-
+                    var costo = (pi.Cantidad * pi.Precio);
+                    costoPedido += costo;
                 }
-                //var pedidoActual = new ReturnPedidoDTO
-                //{
-                //    PedidoId = pedidos.PedidoId,
-                //    Proveedor = new ReturnProveedorDTO { ProveedorId = proveedor.ProveedorId, Nombre = proveedor.Nombre },
-                //    Sucursal = new ReturnSucursalDTO { SucursalId = sucursal.SucursalId, Nombre = sucursal.Nombre },
-                //    Estado = new ReturnEstadoPedidoDTO { EstadoPedidoId = estadoPedidos.EstadoPedidoId, Estado = estadoPedidos.Estado },
-                //    FechaCreacion = pedidos.FechaCreacion,
-                //    FechaEntrega = pedidos.FechaEntrega,
-                //    CostoPedido = costoPedido,
-                //    Total = costoTotal
-                //};
+
+                costoTotal = costoPedido + pedidoActual.CostoTransporte;
+
+                pedidoActual.PedidoId = pedido.PedidoId;
+                pedidoActual.FechaCreacion = pedido.FechaCreacion;
+                pedidoActual.FechaEntrega = pedido.FechaEntrega;
+                pedidoActual.CostoPedido = costoPedido;
+                pedidoActual.Total = costoTotal;
                 result.Add(pedidoActual);
             }
-
-
-            foreach (var p in pedidosInsumo)
-            {
-                var costo = (p.Cantidad * p.Precio);
-                costoPedido += costo;
-            }
-
-            costoTotal = costoPedido + costoTransporte;
-
-
 
             return Ok(result);
         }
@@ -208,6 +263,10 @@ namespace WendyApp.Server.Controllers
                 EstadoPedidoId = estadoPedidos.EstadoPedidoId
             };
 
+            pedido.EstadoPedidoId = estadoId;
+
+            _unitOfWork.Pedidos.Update(pedido);
+
             var historialPedido = _mapper.Map<HistorialPedido>(historialPedidoDTO);
             await _unitOfWork.HistorialPedidos.Insert(historialPedido);
             await _unitOfWork.Save();
@@ -282,10 +341,11 @@ namespace WendyApp.Server.Controllers
                 PedidoId = id,
                 Proveedor = new ReturnProveedorDTO { ProveedorId = proveedor.ProveedorId, Nombre = proveedor.Nombre },
                 Sucursal = new ReturnSucursalDTO { SucursalId = sucursal.SucursalId, Nombre = sucursal.Nombre },
-                Estado = new ReturnEstadoPedidoDTO { EstadoPedidoId = 1, Estado = "Pendiente" },
+                Estado = new ReturnEstadoPedidoDTO { EstadoPedidoId = 1, Estado = "Enviada" },
                 FechaCreacion = pedidoCreated.FechaCreacion,
                 FechaEntrega = pedidoCreated.FechaEntrega,
                 CostoPedido = costoPedido,
+                CostoTransporte = costoTransporte,
                 Total = costoTotal
             };
 
