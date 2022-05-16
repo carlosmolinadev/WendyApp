@@ -25,4 +25,11 @@ namespace WendyApp.Server.Models
         [JsonIgnore]
         public virtual PaisDTO pais { get; set; }
     }
+
+    public class ReturnSucursalDTO
+    {
+        public int SucursalId { get; set; }
+
+        public string Nombre { get; set; }
+    }
 }

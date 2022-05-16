@@ -11,6 +11,7 @@ namespace WendyApp.Server.Configuration
             CreateMap<Categoria, CategoriaDTO>().ReverseMap();
             CreateMap<EstadoPedido, EstadoPedidoDTO>().ReverseMap();
             CreateMap<HistorialPedido, HistorialPedidoDTO>().ReverseMap();
+            CreateMap<EstadoPedido, ReturnEstadoPedidoDTO>().ReverseMap();
             CreateMap<Insumo, InsumoDTO>().ReverseMap();
             CreateMap<InsumoCategoria, InsumoCategoriaDTO>().ReverseMap();
             CreateMap<Pais, PaisDTO>().ReverseMap();

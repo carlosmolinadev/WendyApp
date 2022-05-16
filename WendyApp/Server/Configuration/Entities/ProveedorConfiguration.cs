@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 using WendyApp.Shared.Domain;
 
 
@@ -14,7 +15,8 @@ namespace WendyApp.Server.Configuration.Entities
                 {
                    ProveedorId= 1,
                    Nombre = "Super selectos",
-                   Descripcion = "Distribuidor de carnes y pan"
+                   Descripcion = "Distribuidor de carnes y pan",
+                   FechaCreacion = DateTime.Now
                 }
             );
         }

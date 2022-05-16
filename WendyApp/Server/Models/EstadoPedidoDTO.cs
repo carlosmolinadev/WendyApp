@@ -8,7 +8,7 @@ namespace WendyApp.Server.Models
 {
     public class EstadoPedidoDTO
     {
-        [JsonIgnore]
+        [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
         public int EstadoPedidoId { get; set; }
         public string Estado { get; set; }
         [JsonIgnore]
@@ -16,4 +16,13 @@ namespace WendyApp.Server.Models
         [JsonIgnore]
         public virtual List<PedidoDTO> Pedidos { get; set; }
     }
+
+    public class ReturnEstadoPedidoDTO
+    {
+        public int EstadoPedidoId { get; set; }
+        public string Estado { get; set; }
+        public DateTime FechaCreacion { get; set; }
+    }
+
+
 }

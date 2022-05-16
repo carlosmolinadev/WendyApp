@@ -11,7 +11,7 @@ namespace WendyApp.Shared.Domain
         public int InsumoId { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public DateTime FechaCreacion { get; set; }
+        public DateTime FechaCreacion { get; set; } = DateTime.Now;
 
         [JsonIgnore]
         public virtual List<InsumoCategoria> Categorias { get; set; }

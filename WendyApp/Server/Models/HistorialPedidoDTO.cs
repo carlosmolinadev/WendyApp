@@ -18,10 +18,12 @@ namespace WendyApp.Server.Models
         [Required]
         public int PedidoId { get; set; }
         [Required]
-        public int EstadoPedidosId { get; set; }
+        public int EstadoPedidoId { get; set; }
         [JsonIgnore]
         public virtual EstadoPedidoDTO EstadoPedidos { get; set; }
         [JsonIgnore]
         public virtual PedidoDTO Pedido { get; set; }
     }
+
+
 }

@@ -16,7 +16,7 @@ namespace WendyApp.Shared.Domain
         public int PedidoId { get; set; }
 
         [ForeignKey(nameof(EstadoPedido))]
-        public int EstadoPedidosId { get; set; }
+        public int EstadoPedidoId { get; set; }
 
         public virtual EstadoPedido EstadoPedidos { get; set; }
         public virtual Pedido Pedido { get; set; }
