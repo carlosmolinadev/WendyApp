@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using WendyApp.Server.Interfaces.IRepository;
 using WendyApp.Server.Models;
@@ -302,8 +303,28 @@ namespace WendyApp.Server.Controllers
                 return BadRequest(ModelState);
             }
 
+            var sucursalJson = new JsonSucursal();
+            var jwt = Request.Headers["Authorization"];
+            if (string.IsNullOrEmpty(jwt))
+            {
+                return Unauthorized();
+            }
+            jwt = jwt.ToString().Split(' ')[1];
+            var handler = new JwtSecurityTokenHandler();
+            var token = handler.ReadJwtToken(jwt);
+
+            var claims = token.Payload.Claims;
+
+            foreach (var item in claims)
+            {
+                if (item.Type == "sucursal")
+                {
+                    sucursalJson = JsonSerializer.Deserialize<JsonSucursal>(item.Value);
+                }
+            }
+
             var proveedor = await _unitOfWork.Proveedores.Get(q => q.ProveedorId == pedido.ProveedorId);
-            var sucursal = await _unitOfWork.Sucursales.Get(q => q.SucursalId == pedido.SucursalId);
+            var sucursal = await _unitOfWork.Sucursales.Get(q => q.SucursalId == sucursalJson.sucursalId);
             var paisesProveedores = await _unitOfWork.PaisesProveedores.Get(q => q.Pais.PaisId == sucursal.PaisId && q.Proveedor.ProveedorId == proveedor.ProveedorId);
             var costoTransporte = paisesProveedores.CostoTransporte;
             var insumos = pedido.Insumos;

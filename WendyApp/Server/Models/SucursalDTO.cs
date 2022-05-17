@@ -32,4 +32,14 @@ namespace WendyApp.Server.Models
 
         public string Nombre { get; set; }
     }
+
+    public class JsonSucursal
+    {
+        public int sucursalId { get; set; }
+        public string nombre { get; set; }
+        public DateTime fechaCreacion { get; set; }
+        public string direccion { get; set; }
+        public int paisId { get; set; }
+        public string pais { get; set; }
+    }
 }
