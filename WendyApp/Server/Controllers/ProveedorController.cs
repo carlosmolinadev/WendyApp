@@ -1,11 +1,16 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq.Expressions;
+using System.Security.Claims;
+using System.Text.Json;
 using System.Threading.Tasks;
 using WendyApp.Server.Interfaces.IRepository;
 using WendyApp.Server.Models;
@@ -34,10 +39,32 @@ namespace WendyApp.Server.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetProveedores()
         {
-            var proveedores = await _unitOfWork.Proveedores.GetAll(null, include: q => q.Include(x => x.Paises));
+            var sucursal = new JsonSucursal();
+            var jwt = Request.Headers["Authorization"];
+            if (string.IsNullOrEmpty(jwt))
+            {
+                return Unauthorized();
+            }
+            jwt = jwt.ToString().Split(' ')[1];
+            var handler = new JwtSecurityTokenHandler();
+            var token = handler.ReadJwtToken(jwt);
+
+            var claims = token.Payload.Claims;
+
+            foreach (var item in claims)
+            {
+                if (item.Type == "sucursal")
+                {
+                    sucursal = JsonSerializer.Deserialize<JsonSucursal>(item.Value);
+                }
+            }
+
+            var paisesProveedores = await _unitOfWork.PaisesProveedores.Get(q => q.PaisId == sucursal.paisId);
+            var proveedores = await _unitOfWork.Proveedores.GetAll(q => q.ProveedorId == paisesProveedores.ProveedorId, include: q => q.Include(x => x.Paises));
             var paises = await _unitOfWork.Paises.GetAll();
             var paisesDTO = _mapper.Map<List<PaisDTO>>(paises);
             var result = new List<ReturnProveedorDetailsDTO>();
+
 
             for (int i = 0; i < proveedores.Count; i++)
             {

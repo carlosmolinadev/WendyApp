@@ -10,7 +10,7 @@ using Wendy.Server.Data;
 namespace WendyApp.Server.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220516225420_Seed")]
+    [Migration("20220517004827_Seed")]
     partial class Seed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -203,315 +203,315 @@ namespace WendyApp.Server.Migrations
                         {
                             InsumoId = 1,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(2653),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5358),
                             Nombre = "Tomate"
                         },
                         new
                         {
                             InsumoId = 2,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(2976),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5923),
                             Nombre = "Lechuga"
                         },
                         new
                         {
                             InsumoId = 3,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(2979),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5926),
                             Nombre = "Cebolla"
                         },
                         new
                         {
                             InsumoId = 4,
                             Descripcion = "Precio por frasco",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(2981),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5928),
                             Nombre = "Pepinillo"
                         },
                         new
                         {
                             InsumoId = 5,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(2984),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5931),
                             Nombre = "Papas"
                         },
                         new
                         {
                             InsumoId = 6,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(2986),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5934),
                             Nombre = "Carne de Res"
                         },
                         new
                         {
                             InsumoId = 7,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(2989),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5936),
                             Nombre = "Carne de Pollo"
                         },
                         new
                         {
                             InsumoId = 8,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(2991),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5939),
                             Nombre = "Tocino"
                         },
                         new
                         {
                             InsumoId = 9,
                             Descripcion = "Precio por bolsa",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(2994),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5941),
                             Nombre = "Pan con ajonjolí"
                         },
                         new
                         {
                             InsumoId = 10,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(2996),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5944),
                             Nombre = "Queso"
                         },
                         new
                         {
                             InsumoId = 11,
                             Descripcion = "Precio por litro",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(2999),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5946),
                             Nombre = "Leche"
                         },
                         new
                         {
                             InsumoId = 12,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3001),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5949),
                             Nombre = "Salsa de Tomate"
                         },
                         new
                         {
                             InsumoId = 13,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3004),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5952),
                             Nombre = "Mostaza"
                         },
                         new
                         {
                             InsumoId = 14,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3006),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5954),
                             Nombre = "Salsa Sandwich Spread"
                         },
                         new
                         {
                             InsumoId = 15,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3009),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5957),
                             Nombre = "Sal"
                         },
                         new
                         {
                             InsumoId = 16,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3011),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5959),
                             Nombre = "Pimienta"
                         },
                         new
                         {
                             InsumoId = 17,
                             Descripcion = "Precio por botella",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3014),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5962),
                             Nombre = "Agua"
                         },
                         new
                         {
                             InsumoId = 18,
                             Descripcion = "Precio por libra",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3016),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5964),
                             Nombre = "Café"
                         },
                         new
                         {
                             InsumoId = 19,
                             Descripcion = "Precio por litro",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3019),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(5967),
                             Nombre = "Soda"
                         },
                         new
                         {
                             InsumoId = 20,
                             Descripcion = "Precio por unidad",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3021),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6019),
                             Nombre = "Cocina"
                         },
                         new
                         {
                             InsumoId = 21,
                             Descripcion = "Precio por unidad",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3024),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6022),
                             Nombre = "Freidora"
                         },
                         new
                         {
                             InsumoId = 22,
                             Descripcion = "Precio por unidad",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3026),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6025),
                             Nombre = "Cuarto frío"
                         },
                         new
                         {
                             InsumoId = 23,
                             Descripcion = "Precio por unidad",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3029),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6028),
                             Nombre = "Utensilios de cocina"
                         },
                         new
                         {
                             InsumoId = 24,
                             Descripcion = "Precio por metro cúbico",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3031),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6030),
                             Nombre = "Agua"
                         },
                         new
                         {
                             InsumoId = 25,
                             Descripcion = "Precio por Kw/hora",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3070),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6033),
                             Nombre = "Electricidad"
                         },
                         new
                         {
                             InsumoId = 26,
                             Descripcion = "Precio por megas",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3073),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6036),
                             Nombre = "Internet"
                         },
                         new
                         {
                             InsumoId = 27,
                             Descripcion = "Precio por paquete",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3076),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6038),
                             Nombre = "Servilletas"
                         },
                         new
                         {
                             InsumoId = 28,
                             Descripcion = "Precio por paquete",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3079),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6041),
                             Nombre = "Papel higiénico"
                         },
                         new
                         {
                             InsumoId = 29,
                             Descripcion = "Precio por paquete",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3081),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6043),
                             Nombre = "Toallas del hogar"
                         },
                         new
                         {
                             InsumoId = 30,
                             Descripcion = "Precio por paquete",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3084),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6046),
                             Nombre = "Empaques desechables"
                         },
                         new
                         {
                             InsumoId = 31,
                             Descripcion = "Precio por paquete",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3086),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6048),
                             Nombre = "Bolsas para llevar"
                         },
                         new
                         {
                             InsumoId = 32,
                             Descripcion = "Precio por Unidad",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3089),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6051),
                             Nombre = "Mesas"
                         },
                         new
                         {
                             InsumoId = 33,
                             Descripcion = "Precio por unidad",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3091),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6053),
                             Nombre = "Sillas"
                         },
                         new
                         {
                             InsumoId = 34,
                             Descripcion = "Precio por unidad",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3094),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6056),
                             Nombre = "Lámparas - iluminación"
                         },
                         new
                         {
                             InsumoId = 35,
                             Descripcion = "Precio por paquete",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3096),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6058),
                             Nombre = "Platos"
                         },
                         new
                         {
                             InsumoId = 36,
                             Descripcion = "Precio por paquete",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3099),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6061),
                             Nombre = "Vasos"
                         },
                         new
                         {
                             InsumoId = 37,
                             Descripcion = "Precio por paquete",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3101),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6064),
                             Nombre = "Cucharas"
                         },
                         new
                         {
                             InsumoId = 38,
                             Descripcion = "Precio por paquete",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3104),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6066),
                             Nombre = "Tenedores"
                         },
                         new
                         {
                             InsumoId = 39,
                             Descripcion = "Precio por paquete",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3106),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6069),
                             Nombre = "Cuchillos"
                         },
                         new
                         {
                             InsumoId = 40,
                             Descripcion = "Precio por unidad",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3109),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6071),
                             Nombre = "Escobas"
                         },
                         new
                         {
                             InsumoId = 41,
                             Descripcion = "Precio por unidad",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3111),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6074),
                             Nombre = "Trapeadores"
                         },
                         new
                         {
                             InsumoId = 42,
                             Descripcion = "Precio por galón",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3114),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6076),
                             Nombre = "Detergentes y desinfectantes"
                         },
                         new
                         {
                             InsumoId = 43,
                             Descripcion = "Precio por galón",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3116),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6079),
                             Nombre = "Alcohol gel"
                         },
                         new
                         {
                             InsumoId = 44,
                             Descripcion = "Precio por galón",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3119),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6081),
                             Nombre = "Jabbón para manos"
                         },
                         new
                         {
                             InsumoId = 45,
                             Descripcion = "Precio por tipo de insumo",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 737, DateTimeKind.Local).AddTicks(3121),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 775, DateTimeKind.Local).AddTicks(6084),
                             Nombre = "Otros"
                         });
                 });
@@ -1013,203 +1013,203 @@ namespace WendyApp.Server.Migrations
                         {
                             Id = 2,
                             CostoTransporte = 2.2m,
-                            PaisId = 2,
+                            PaisId = 1,
                             ProveedorId = 2
                         },
                         new
                         {
                             Id = 3,
                             CostoTransporte = 3.0m,
-                            PaisId = 3,
+                            PaisId = 2,
                             ProveedorId = 3
                         },
                         new
                         {
                             Id = 4,
                             CostoTransporte = 2.5m,
-                            PaisId = 4,
+                            PaisId = 2,
                             ProveedorId = 4
                         },
                         new
                         {
                             Id = 5,
                             CostoTransporte = 3.5m,
-                            PaisId = 5,
+                            PaisId = 1,
                             ProveedorId = 5
                         },
                         new
                         {
                             Id = 6,
                             CostoTransporte = 4.0m,
-                            PaisId = 6,
-                            ProveedorId = 6
+                            PaisId = 2,
+                            ProveedorId = 2
                         },
                         new
                         {
                             Id = 7,
                             CostoTransporte = 4.0m,
-                            PaisId = 7,
+                            PaisId = 1,
                             ProveedorId = 7
                         },
                         new
                         {
                             Id = 8,
                             CostoTransporte = 2.0m,
-                            PaisId = 8,
+                            PaisId = 2,
                             ProveedorId = 8
                         },
                         new
                         {
                             Id = 9,
                             CostoTransporte = 3.0m,
-                            PaisId = 9,
+                            PaisId = 2,
                             ProveedorId = 9
                         },
                         new
                         {
                             Id = 10,
                             CostoTransporte = 4.0m,
-                            PaisId = 10,
+                            PaisId = 1,
                             ProveedorId = 10
                         },
                         new
                         {
                             Id = 11,
                             CostoTransporte = 4.5m,
-                            PaisId = 11,
+                            PaisId = 2,
                             ProveedorId = 11
                         },
                         new
                         {
                             Id = 12,
                             CostoTransporte = 4.0m,
-                            PaisId = 12,
+                            PaisId = 2,
                             ProveedorId = 12
                         },
                         new
                         {
                             Id = 13,
                             CostoTransporte = 3.5m,
-                            PaisId = 13,
+                            PaisId = 1,
                             ProveedorId = 13
                         },
                         new
                         {
                             Id = 14,
                             CostoTransporte = 2.5m,
-                            PaisId = 14,
+                            PaisId = 1,
                             ProveedorId = 15
                         },
                         new
                         {
                             Id = 15,
                             CostoTransporte = 2.0m,
-                            PaisId = 15,
+                            PaisId = 2,
                             ProveedorId = 14
                         },
                         new
                         {
                             Id = 16,
                             CostoTransporte = 6.0m,
-                            PaisId = 16,
+                            PaisId = 19,
                             ProveedorId = 16
                         },
                         new
                         {
                             Id = 17,
                             CostoTransporte = 3.0m,
-                            PaisId = 17,
+                            PaisId = 1,
                             ProveedorId = 17
                         },
                         new
                         {
                             Id = 18,
                             CostoTransporte = 2.5m,
-                            PaisId = 18,
+                            PaisId = 2,
                             ProveedorId = 18
                         },
                         new
                         {
                             Id = 19,
                             CostoTransporte = 5.0m,
-                            PaisId = 19,
+                            PaisId = 23,
                             ProveedorId = 19
                         },
                         new
                         {
                             Id = 20,
                             CostoTransporte = 6.0m,
-                            PaisId = 20,
+                            PaisId = 19,
                             ProveedorId = 20
                         },
                         new
                         {
                             Id = 21,
                             CostoTransporte = 5.5m,
-                            PaisId = 21,
+                            PaisId = 23,
                             ProveedorId = 21
                         },
                         new
                         {
                             Id = 22,
                             CostoTransporte = 8.0m,
-                            PaisId = 22,
+                            PaisId = 19,
                             ProveedorId = 22
                         },
                         new
                         {
                             Id = 23,
                             CostoTransporte = 7.5m,
-                            PaisId = 23,
+                            PaisId = 19,
                             ProveedorId = 23
                         },
                         new
                         {
                             Id = 24,
                             CostoTransporte = 7.0m,
-                            PaisId = 24,
+                            PaisId = 23,
                             ProveedorId = 24
                         },
                         new
                         {
                             Id = 25,
                             CostoTransporte = 6.5m,
-                            PaisId = 25,
+                            PaisId = 23,
                             ProveedorId = 25
                         },
                         new
                         {
                             Id = 26,
                             CostoTransporte = 7.5m,
-                            PaisId = 26,
+                            PaisId = 19,
                             ProveedorId = 26
                         },
                         new
                         {
                             Id = 27,
                             CostoTransporte = 8.0m,
-                            PaisId = 27,
+                            PaisId = 19,
                             ProveedorId = 27
                         },
                         new
                         {
                             Id = 28,
                             CostoTransporte = 6.5m,
-                            PaisId = 28,
+                            PaisId = 23,
                             ProveedorId = 28
                         },
                         new
                         {
                             Id = 29,
                             CostoTransporte = 9.0m,
-                            PaisId = 29,
+                            PaisId = 19,
                             ProveedorId = 29
                         },
                         new
                         {
                             Id = 30,
                             CostoTransporte = 6.0m,
-                            PaisId = 30,
+                            PaisId = 23,
                             ProveedorId = 30
                         });
                 });
@@ -1300,210 +1300,210 @@ namespace WendyApp.Server.Migrations
                         {
                             ProveedorId = 1,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(2701),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(4220),
                             Nombre = "Super selectos - El Salvador"
                         },
                         new
                         {
                             ProveedorId = 2,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3576),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5166),
                             Nombre = "Supermercado La Torre Centro Histórico - Guatemala"
                         },
                         new
                         {
                             ProveedorId = 3,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3582),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5173),
                             Nombre = "Supermercado Saretto - Costa Rica"
                         },
                         new
                         {
                             ProveedorId = 4,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3583),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5175),
                             Nombre = "Supermercado Brasil - Brasil"
                         },
                         new
                         {
                             ProveedorId = 5,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3587),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5176),
                             Nombre = "Walmart Express - México"
                         },
                         new
                         {
                             ProveedorId = 6,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3588),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5177),
                             Nombre = "Carrefour - Argentina"
                         },
                         new
                         {
                             ProveedorId = 7,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3590),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5179),
                             Nombre = "Supermercado y Frutería California - Venezuela"
                         },
                         new
                         {
                             ProveedorId = 8,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3591),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5180),
                             Nombre = "Supermax - Puerto Rico"
                         },
                         new
                         {
                             ProveedorId = 9,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3592),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5182),
                             Nombre = "Jumbo - Chile"
                         },
                         new
                         {
                             ProveedorId = 10,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3594),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5183),
                             Nombre = "Supermercado El Soll S A S - Colombia"
                         },
                         new
                         {
                             ProveedorId = 11,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3595),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5185),
                             Nombre = "Super 99 - Panamá"
                         },
                         new
                         {
                             ProveedorId = 12,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3597),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5186),
                             Nombre = "Supermercado Pingüino - Uruguay"
                         },
                         new
                         {
                             ProveedorId = 13,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3598),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5188),
                             Nombre = "Corporación Favorita - Ecuador"
                         },
                         new
                         {
                             ProveedorId = 14,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3599),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5189),
                             Nombre = "Supermercado La Torre Centro Histórico"
                         },
                         new
                         {
                             ProveedorId = 15,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3601),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5190),
                             Nombre = "Supermercado Plaza Vea - Perú"
                         },
                         new
                         {
                             ProveedorId = 16,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3602),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5192),
                             Nombre = "Supermercados Nacional - República Dominicana"
                         },
                         new
                         {
                             ProveedorId = 17,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3603),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5193),
                             Nombre = "Supermercado Paiz - Honduras"
                         },
                         new
                         {
                             ProveedorId = 18,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3605),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5195),
                             Nombre = "Supermercado La Unión - Nicaragua"
                         },
                         new
                         {
                             ProveedorId = 19,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3606),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5196),
                             Nombre = "Supermercados Día - España"
                         },
                         new
                         {
                             ProveedorId = 20,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3608),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5261),
                             Nombre = "Supermercado Auchan - Rusia"
                         },
                         new
                         {
                             ProveedorId = 21,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3609),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5263),
                             Nombre = "Supermercado Hofer - Austria"
                         },
                         new
                         {
                             ProveedorId = 22,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3610),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5264),
                             Nombre = "Ica Supermarket - Suecia"
                         },
                         new
                         {
                             ProveedorId = 23,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3612),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5266),
                             Nombre = "Supermercado Leclerc - Francia"
                         },
                         new
                         {
                             ProveedorId = 24,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3613),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5267),
                             Nombre = "Corporación Froiz - Portugal"
                         },
                         new
                         {
                             ProveedorId = 25,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3615),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5269),
                             Nombre = "Supermercado Tesco - Reino Unido"
                         },
                         new
                         {
                             ProveedorId = 26,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3654),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5270),
                             Nombre = "Supermercado Spr - Irlanda"
                         },
                         new
                         {
                             ProveedorId = 27,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3656),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5272),
                             Nombre = "Supermercados Aldi - Alemania"
                         },
                         new
                         {
                             ProveedorId = 28,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3658),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5274),
                             Nombre = "Supermercado Esselung - Italia"
                         },
                         new
                         {
                             ProveedorId = 29,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3659),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5275),
                             Nombre = "Supermercado Msoutis - Grecia"
                         },
                         new
                         {
                             ProveedorId = 30,
                             Descripcion = "Distribuidor de carnes, pan y vegetales",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 735, DateTimeKind.Local).AddTicks(3660),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 773, DateTimeKind.Local).AddTicks(5277),
                             Nombre = "Supermercado Amarás el Colruyt - Bélgica"
                         });
                 });
@@ -11015,7 +11015,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 1,
                             Direccion = "Metrocentro 8va etapa, El Salvador",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(1709),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 768, DateTimeKind.Local).AddTicks(2063),
                             Nombre = "Sucursal Metrocentro",
                             PaisId = 1
                         },
@@ -11023,7 +11023,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 2,
                             Direccion = "CC Galerías, paseo Gral Escalón, El Salvador",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9963),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(398),
                             Nombre = "Sucursal Galerías",
                             PaisId = 1
                         },
@@ -11031,7 +11031,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 3,
                             Direccion = "Antiguo Cuscatlán - La Libertad, El Salvador",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9977),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(413),
                             Nombre = "Sucursal Multiplaza",
                             PaisId = 1
                         },
@@ -11039,7 +11039,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 4,
                             Direccion = "Calle 23 10-00 zona 4 de Mixco Condado Naranjo, Guatemala",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9979),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(415),
                             Nombre = "Sucursal Naranjo Mall",
                             PaisId = 2
                         },
@@ -11047,7 +11047,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 5,
                             Direccion = "Zona Viva, cuarta avenida 12-44, Guatemala",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9981),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(417),
                             Nombre = "Sucursal FontaBella",
                             PaisId = 2
                         },
@@ -11055,7 +11055,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 6,
                             Direccion = "Diagonal 6 13-01, Guatemala",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9982),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(418),
                             Nombre = "Sucursal Oakland",
                             PaisId = 2
                         },
@@ -11063,7 +11063,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 7,
                             Direccion = "Zona 10, calle 16 2.00, Guatemala",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9984),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(420),
                             Nombre = "Sucursal Los Próceres",
                             PaisId = 2
                         },
@@ -11071,7 +11071,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 8,
                             Direccion = "Autop. Próspero Fernández, San José, Escazú, Costa Rica",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9986),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(422),
                             Nombre = "Sucursal Multiplaza Escazú",
                             PaisId = 3
                         },
@@ -11079,7 +11079,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 9,
                             Direccion = "C. 55, Florencia, San José, San Vicente, Costa Rica",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9987),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(423),
                             Nombre = "Sucursal Lincoln Plaza",
                             PaisId = 3
                         },
@@ -11087,7 +11087,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 10,
                             Direccion = "diagonal a Forum, Radial Sta. Ana - San Rafael - Belén 2 Lindora, San José, Pozos, Costa Rica",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9989),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(425),
                             Nombre = "Sucursal Terrazas Lindora",
                             PaisId = 3
                         },
@@ -11095,7 +11095,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 11,
                             Direccion = "El Hogar, San José, Curridabat, 11801, Costa Rica",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9991),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(427),
                             Nombre = "Sucursal Multiplaza Curridabat",
                             PaisId = 3
                         },
@@ -11103,7 +11103,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 12,
                             Direccion = "Rio de Janeiro, Brasil",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9992),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(428),
                             Nombre = "Sucursal Village Mall",
                             PaisId = 4
                         },
@@ -11111,7 +11111,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 13,
                             Direccion = "Sao Paulo, Brasil",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9994),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(430),
                             Nombre = "Sucursal Cidade Jardim",
                             PaisId = 4
                         },
@@ -11119,7 +11119,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 14,
                             Direccion = "Ciudad de Mexico, México",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9996),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(432),
                             Nombre = "Sucursal Centro Santa Fe",
                             PaisId = 5
                         },
@@ -11127,7 +11127,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 15,
                             Direccion = "Benito Juárez - México DF, México",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9997),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(433),
                             Nombre = "Sucursal Plaza Universidad",
                             PaisId = 5
                         },
@@ -11135,7 +11135,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 16,
                             Direccion = "Interlomas - Huixquilucan, México",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 730, DateTimeKind.Local).AddTicks(9999),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(435),
                             Nombre = "Sucursal Paseo Interlomas",
                             PaisId = 5
                         },
@@ -11143,7 +11143,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 17,
                             Direccion = "Buenos Aires, Argentina",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(436),
                             Nombre = "Sucursal Unicenter",
                             PaisId = 6
                         },
@@ -11151,7 +11151,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 18,
                             Direccion = "Palermo - Buenos Aires, Argentina",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(2),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(438),
                             Nombre = "Sucursal Alto Palermo",
                             PaisId = 6
                         },
@@ -11159,7 +11159,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 19,
                             Direccion = "Castelar - Morón - Buenos Aires, Argentina",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(3),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(440),
                             Nombre = "Sucursal Plaza Oeste",
                             PaisId = 6
                         },
@@ -11167,7 +11167,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 20,
                             Direccion = "Boulogne - Buenos Aires, Argentina",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(5),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(442),
                             Nombre = "Sucursal Soleil Factory",
                             PaisId = 6
                         },
@@ -11175,7 +11175,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 21,
                             Direccion = "Rosario, Argentina",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(7),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(444),
                             Nombre = "Sucursal Portal Rosario",
                             PaisId = 6
                         },
@@ -11183,7 +11183,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 22,
                             Direccion = "Caracas, Venezuela",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(8),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(445),
                             Nombre = "Sucursal Centro Sambil",
                             PaisId = 7
                         },
@@ -11191,7 +11191,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 23,
                             Direccion = "Valencia, Venezuela",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(10),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(447),
                             Nombre = "Sucursal Matrópolis Valencia",
                             PaisId = 7
                         },
@@ -11199,7 +11199,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 24,
                             Direccion = "San Juán, Puerto Rico",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(11),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(448),
                             Nombre = "Sucursal Plaza Las Américas",
                             PaisId = 8
                         },
@@ -11207,7 +11207,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 25,
                             Direccion = "San Juan, Puerto Rico",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(13),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(450),
                             Nombre = "Sucursal The Mall of San Juan",
                             PaisId = 8
                         },
@@ -11215,7 +11215,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 26,
                             Direccion = "Guaynabo, Puerto Rico",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(14),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(452),
                             Nombre = "Sucursal San Patricio Plaza",
                             PaisId = 8
                         },
@@ -11223,7 +11223,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 27,
                             Direccion = "Las condes - RM Santiago, Chile",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(16),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(453),
                             Nombre = "Sucursal Alto Las Condes",
                             PaisId = 9
                         },
@@ -11231,7 +11231,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 28,
                             Direccion = "Talcahuano - AM Concepción, Chile",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(18),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(455),
                             Nombre = "Sucursal Mall Plaza Trébol",
                             PaisId = 9
                         },
@@ -11239,7 +11239,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 29,
                             Direccion = "Bogotá, Colombia",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(20),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(457),
                             Nombre = "Sucursal Unicentroi Bogotá",
                             PaisId = 10
                         },
@@ -11247,7 +11247,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 30,
                             Direccion = "Medellín, Colombia",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(21),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(458),
                             Nombre = "Sucursal El Tesoro",
                             PaisId = 10
                         },
@@ -11255,7 +11255,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 31,
                             Direccion = "Vía Centenario, Panamá",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(23),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(460),
                             Nombre = "Sucursal AltaPlaza Mall",
                             PaisId = 11
                         },
@@ -11263,7 +11263,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 32,
                             Direccion = "XCCW+5R6, Marginal, Avenida Roosevelt, Panamá",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(25),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(462),
                             Nombre = "Sucursal Albrook Mall",
                             PaisId = 11
                         },
@@ -11271,7 +11271,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 33,
                             Direccion = "Vía Israel, Panamá",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(26),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(463),
                             Nombre = "Sucursal Multiplaza Panamá",
                             PaisId = 11
                         },
@@ -11279,7 +11279,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 34,
                             Direccion = "v. Luis Alberto de Herrera 3365, 11600 Montevideo, Departamento de Montevideo, Uruguay",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(28),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(465),
                             Nombre = "Sucursal Nuevocentro Shopping",
                             PaisId = 12
                         },
@@ -11287,7 +11287,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 35,
                             Direccion = "Ruta Gral. Líber Seregni km22.5, 15000 Ciudad de la Costa, Departamento de Canelones, Uruguay",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(29),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(467),
                             Nombre = "Sucursal Almenara Mall",
                             PaisId = 12
                         },
@@ -11295,7 +11295,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 36,
                             Direccion = "Avenida Naciones Unidas entre, Av. 6 de Diciembre, Quito, Ecuador",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(31),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(468),
                             Nombre = "Sucursal Quicentro Shopping",
                             PaisId = 13
                         },
@@ -11303,7 +11303,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 37,
                             Direccion = "4º Pasaje 1 NE, Guayaquil 090513, Ecuador",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(33),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(470),
                             Nombre = "Sucursal Mall del Sol",
                             PaisId = 13
                         },
@@ -11311,7 +11311,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 38,
                             Direccion = "Santiago de Surco - Lima, Perú",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(34),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(471),
                             Nombre = "Sucursal Jockey Plaza",
                             PaisId = 14
                         },
@@ -11319,7 +11319,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 39,
                             Direccion = "San Miguel - Lima, Perú",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(36),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(473),
                             Nombre = "Sucursal Plaza San Miguel",
                             PaisId = 14
                         },
@@ -11327,7 +11327,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 40,
                             Direccion = "Av. Sta. Teresa 1827, Asunción, Paraguay",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(37),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(475),
                             Nombre = "Sucursal Paseo La Galería",
                             PaisId = 15
                         },
@@ -11335,7 +11335,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 41,
                             Direccion = "F9PV+PG6, Avenida Doctor Luis Maria Argaña, Cd. del Este, Paraguay",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(39),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(476),
                             Nombre = "Sucursal Shopping Paris",
                             PaisId = 15
                         },
@@ -11343,7 +11343,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 42,
                             Direccion = "Corner of, P.º de los Aviadores, Santo Domingo 10413, República Dominicana",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(40),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(478),
                             Nombre = "Sucursal Sambil Santo Domingo",
                             PaisId = 16
                         },
@@ -11351,7 +11351,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 43,
                             Direccion = "esquina Carretera de Juanillo, Blvd. Turístico del Este, Punta Cana 23000, República Dominicana",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(42),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(479),
                             Nombre = "Sucursal BlueMall Puntacana",
                             PaisId = 16
                         },
@@ -11359,7 +11359,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 44,
                             Direccion = "1Calle ,Frente A Farmacia Kielsa ,Carretera a San Pedro SULA, Tegucigalpa, Honduras",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(44),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(481),
                             Nombre = "Sucursal City Mall",
                             PaisId = 17
                         },
@@ -11367,7 +11367,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 45,
                             Direccion = "Semaforos de Villa Progreso 1 cuadra al Oeste, Nicaragua",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(45),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(482),
                             Nombre = "Sucursal Multicentro Las Américas",
                             PaisId = 18
                         },
@@ -11375,7 +11375,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 46,
                             Direccion = "Av. de Gran Bretaña, s/n, 28916 Leganés, Madrid, España",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(47),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(484),
                             Nombre = "Sucursal Centro Comercial Parquesur",
                             PaisId = 19
                         },
@@ -11383,7 +11383,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 47,
                             Direccion = "Ctra. Ajalvir Centro Comerci, s/n, 28850 Torrejón de Ardoz, Madrid, España",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(48),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(486),
                             Nombre = "Sucursal Centro Comercial Parque Corredor",
                             PaisId = 19
                         },
@@ -11391,7 +11391,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 48,
                             Direccion = "Kiyevsky Station Square, 2, Moscow, Rusia, 121059",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(50),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(487),
                             Nombre = "Sucursal Evropeysky",
                             PaisId = 20
                         },
@@ -11399,7 +11399,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 49,
                             Direccion = "Novoryazanskoye Shosse, 8, Kotelniki, Moscow Oblast, Rusia, 140053",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(51),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(489),
                             Nombre = "Sucursal Outlet Village Belaya Dacha",
                             PaisId = 20
                         },
@@ -11407,7 +11407,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 50,
                             Direccion = "Vösendorfer Südring, 2334 Vösendorf, Austria",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(53),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(491),
                             Nombre = "Sucursal Westfield Shopping City Süd",
                             PaisId = 21
                         },
@@ -11415,7 +11415,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 51,
                             Direccion = "Amraser-See-Straße 56a, 6020 Innsbruck, Austria",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(55),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(492),
                             Nombre = "Sucursal DEZ Innsbruck",
                             PaisId = 21
                         },
@@ -11423,7 +11423,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 52,
                             Direccion = "Stjärntorget 13 C, 169 79 Solna, Suecia",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(56),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(494),
                             Nombre = "Sucursal Mall of Scandinaviaultiplaza Curridabat",
                             PaisId = 22
                         },
@@ -11431,7 +11431,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 53,
                             Direccion = "Stora Marknadsvägen 15, 183 70 Täby, Suecia",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(58),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(496),
                             Nombre = "Sucursal Centro de Täby",
                             PaisId = 22
                         },
@@ -11439,7 +11439,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 54,
                             Direccion = "15 Parvis De La Défense, 92092 Puteaux, Francia",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(59),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(497),
                             Nombre = "Sucursal Les Quatre Temps",
                             PaisId = 23
                         },
@@ -11447,7 +11447,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 55,
                             Direccion = "2 All. Emile Zola, 31700 Blagnac, Francia",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(61),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(499),
                             Nombre = "Sucursal Blagnac",
                             PaisId = 23
                         },
@@ -11455,7 +11455,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 56,
                             Direccion = "Av. Dom João II 40, 1990-094 Lisboa, Portugal",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(62),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(500),
                             Nombre = "Sucursal Vasco da Gama",
                             PaisId = 24
                         },
@@ -11463,7 +11463,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 57,
                             Direccion = "Av. Cruzeiro Seixas 5 e 7, 2650-505 Amadora, Portugal",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(64),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(502),
                             Nombre = "Sucursal Dolce Vita Tejo",
                             PaisId = 24
                         },
@@ -11471,7 +11471,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 58,
                             Direccion = "Bernard St, London WC1N 1BS, Reino Unido",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(66),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(503),
                             Nombre = "Sucursal The Brunswick Center",
                             PaisId = 25
                         },
@@ -11479,7 +11479,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 59,
                             Direccion = "Stable St, London N1C 4DQ, Reino Unido",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(67),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(505),
                             Nombre = "Sucursal Coral Drops Yard",
                             PaisId = 25
                         },
@@ -11487,7 +11487,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 60,
                             Direccion = "St Stephen's Green, Dublin, D02 HX65, Irlanda",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(69),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(507),
                             Nombre = "Sucursal Stephen's Green",
                             PaisId = 26
                         },
@@ -11495,7 +11495,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 61,
                             Direccion = "1 Talbot St, North City, Dublin, D01 XW65, Irlanda",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(70),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(508),
                             Nombre = "Sucursal Talbot Mall",
                             PaisId = 26
                         },
@@ -11503,7 +11503,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 62,
                             Direccion = "Am Einkaufszentrum 1, 44791 Bochum, Alemania",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(72),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(510),
                             Nombre = "Sucursal Ruhr Park",
                             PaisId = 27
                         },
@@ -11511,7 +11511,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 63,
                             Direccion = "Ob. Bürger 127, 27568 Bremerhaven, Alemania",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(73),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(512),
                             Nombre = "Sucursal Columbus Center",
                             PaisId = 27
                         },
@@ -11519,7 +11519,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 64,
                             Direccion = "Via Giuseppe Eugenio Luraghi, 11, 20044 Arese MI, Italia",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(75),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(513),
                             Nombre = "Sucursal Il Centro",
                             PaisId = 28
                         },
@@ -11527,7 +11527,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 65,
                             Direccion = "Via alla Fiumara, 15/16, 16149 Genova GE, Italia",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(77),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(515),
                             Nombre = "Sucursal La Fiumara",
                             PaisId = 28
                         },
@@ -11535,7 +11535,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 66,
                             Direccion = "Sofikli Venizelou, Minoos & Pelasgon Σοφοκλή Bενιζέλου, Μίνωος &, Pelasgon, Iraklio 713 03, Grecia",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(78),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(516),
                             Nombre = "Sucursal Talos Plaza",
                             PaisId = 29
                         },
@@ -11543,7 +11543,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 67,
                             Direccion = "Agiou Dimitriou 19, Athina 105 54, Grecia",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(80),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(518),
                             Nombre = "Sucursal 3Quarters",
                             PaisId = 29
                         },
@@ -11551,7 +11551,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 68,
                             Direccion = "Bd Lambermont 1, 1000 Bruxelles, Bélgica",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(81),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(519),
                             Nombre = "Sucursal Docks Bruxsel",
                             PaisId = 30
                         },
@@ -11559,7 +11559,7 @@ namespace WendyApp.Server.Migrations
                         {
                             SucursalId = 69,
                             Direccion = "Pl. de l'Accueil 10, 1348 Ottignies-Louvain-la-Neuve, Bélgica",
-                            FechaCreacion = new DateTime(2022, 5, 16, 16, 54, 19, 731, DateTimeKind.Local).AddTicks(83),
+                            FechaCreacion = new DateTime(2022, 5, 16, 18, 48, 26, 769, DateTimeKind.Local).AddTicks(521),
                             Nombre = "Sucursal L'esplanade",
                             PaisId = 30
                         });
@@ -11602,8 +11602,8 @@ namespace WendyApp.Server.Migrations
                             UsuarioId = 1,
                             Email = "usuario_admin@wendy.com",
                             Nickname = "admin",
-                            Password = new byte[] { 123, 221, 62, 86, 10, 33, 58, 211, 138, 186, 150, 13, 115, 248, 202, 163, 182, 248, 246, 29, 164, 61, 5, 133, 223, 119, 142, 49, 26, 158, 124, 179, 30, 81, 248, 223, 82, 69, 212, 81, 117, 33, 233, 133, 101, 196, 83, 17, 142, 237, 237, 157, 206, 144, 207, 202, 72, 165, 196, 193, 86, 97, 71, 253 },
-                            PasswordSalt = new byte[] { 42, 229, 201, 96, 119, 79, 30, 249, 234, 6, 39, 65, 162, 27, 36, 224, 150, 112, 89, 185, 7, 214, 42, 174, 102, 7, 137, 119, 81, 54, 154, 179, 156, 47, 159, 112, 93, 162, 27, 228, 85, 148, 73, 154, 79, 28, 108, 228, 230, 145, 83, 233, 72, 242, 20, 76, 210, 64, 253, 118, 172, 197, 190, 125, 212, 191, 9, 169, 185, 34, 162, 82, 87, 164, 11, 101, 152, 154, 186, 98, 187, 185, 224, 54, 172, 202, 171, 177, 66, 148, 211, 137, 251, 210, 106, 32, 98, 69, 253, 94, 147, 223, 138, 122, 255, 58, 221, 106, 4, 52, 129, 228, 86, 37, 255, 52, 164, 139, 42, 250, 26, 5, 236, 109, 205, 161, 194, 134 },
+                            Password = new byte[] { 96, 180, 95, 232, 241, 86, 23, 208, 62, 115, 47, 225, 246, 30, 148, 152, 157, 163, 10, 139, 176, 101, 247, 206, 35, 155, 193, 26, 91, 195, 218, 110, 213, 191, 36, 77, 77, 110, 235, 44, 69, 124, 113, 134, 200, 94, 111, 114, 117, 140, 191, 117, 195, 185, 214, 171, 90, 134, 7, 130, 122, 205, 86, 55 },
+                            PasswordSalt = new byte[] { 8, 23, 24, 207, 103, 0, 224, 110, 110, 100, 75, 250, 50, 249, 253, 182, 22, 241, 62, 29, 91, 239, 207, 138, 72, 213, 52, 223, 123, 60, 234, 213, 1, 52, 28, 53, 8, 138, 132, 35, 17, 193, 102, 207, 140, 226, 238, 108, 146, 161, 59, 21, 59, 70, 82, 27, 73, 173, 146, 48, 184, 238, 208, 98, 76, 236, 96, 61, 222, 125, 28, 44, 91, 4, 212, 38, 202, 227, 95, 163, 153, 7, 14, 193, 181, 25, 32, 176, 16, 174, 120, 97, 179, 59, 149, 192, 1, 217, 103, 140, 143, 233, 111, 21, 75, 182, 234, 120, 200, 51, 61, 208, 146, 208, 226, 167, 255, 88, 140, 196, 220, 39, 200, 110, 0, 58, 109, 116 },
                             Rol = "ADMIN",
                             SucursalId = 1
                         },
@@ -11612,8 +11612,8 @@ namespace WendyApp.Server.Migrations
                             UsuarioId = 2,
                             Email = "carlos_molina@wendy.com",
                             Nickname = "carmolina",
-                            Password = new byte[] { 123, 221, 62, 86, 10, 33, 58, 211, 138, 186, 150, 13, 115, 248, 202, 163, 182, 248, 246, 29, 164, 61, 5, 133, 223, 119, 142, 49, 26, 158, 124, 179, 30, 81, 248, 223, 82, 69, 212, 81, 117, 33, 233, 133, 101, 196, 83, 17, 142, 237, 237, 157, 206, 144, 207, 202, 72, 165, 196, 193, 86, 97, 71, 253 },
-                            PasswordSalt = new byte[] { 42, 229, 201, 96, 119, 79, 30, 249, 234, 6, 39, 65, 162, 27, 36, 224, 150, 112, 89, 185, 7, 214, 42, 174, 102, 7, 137, 119, 81, 54, 154, 179, 156, 47, 159, 112, 93, 162, 27, 228, 85, 148, 73, 154, 79, 28, 108, 228, 230, 145, 83, 233, 72, 242, 20, 76, 210, 64, 253, 118, 172, 197, 190, 125, 212, 191, 9, 169, 185, 34, 162, 82, 87, 164, 11, 101, 152, 154, 186, 98, 187, 185, 224, 54, 172, 202, 171, 177, 66, 148, 211, 137, 251, 210, 106, 32, 98, 69, 253, 94, 147, 223, 138, 122, 255, 58, 221, 106, 4, 52, 129, 228, 86, 37, 255, 52, 164, 139, 42, 250, 26, 5, 236, 109, 205, 161, 194, 134 },
+                            Password = new byte[] { 96, 180, 95, 232, 241, 86, 23, 208, 62, 115, 47, 225, 246, 30, 148, 152, 157, 163, 10, 139, 176, 101, 247, 206, 35, 155, 193, 26, 91, 195, 218, 110, 213, 191, 36, 77, 77, 110, 235, 44, 69, 124, 113, 134, 200, 94, 111, 114, 117, 140, 191, 117, 195, 185, 214, 171, 90, 134, 7, 130, 122, 205, 86, 55 },
+                            PasswordSalt = new byte[] { 8, 23, 24, 207, 103, 0, 224, 110, 110, 100, 75, 250, 50, 249, 253, 182, 22, 241, 62, 29, 91, 239, 207, 138, 72, 213, 52, 223, 123, 60, 234, 213, 1, 52, 28, 53, 8, 138, 132, 35, 17, 193, 102, 207, 140, 226, 238, 108, 146, 161, 59, 21, 59, 70, 82, 27, 73, 173, 146, 48, 184, 238, 208, 98, 76, 236, 96, 61, 222, 125, 28, 44, 91, 4, 212, 38, 202, 227, 95, 163, 153, 7, 14, 193, 181, 25, 32, 176, 16, 174, 120, 97, 179, 59, 149, 192, 1, 217, 103, 140, 143, 233, 111, 21, 75, 182, 234, 120, 200, 51, 61, 208, 146, 208, 226, 167, 255, 88, 140, 196, 220, 39, 200, 110, 0, 58, 109, 116 },
                             Rol = "SUPERVISOR",
                             SucursalId = 1
                         },
@@ -11622,8 +11622,8 @@ namespace WendyApp.Server.Migrations
                             UsuarioId = 3,
                             Email = "sa18004@ues.edu.sv",
                             Nickname = "erisaravia",
-                            Password = new byte[] { 123, 221, 62, 86, 10, 33, 58, 211, 138, 186, 150, 13, 115, 248, 202, 163, 182, 248, 246, 29, 164, 61, 5, 133, 223, 119, 142, 49, 26, 158, 124, 179, 30, 81, 248, 223, 82, 69, 212, 81, 117, 33, 233, 133, 101, 196, 83, 17, 142, 237, 237, 157, 206, 144, 207, 202, 72, 165, 196, 193, 86, 97, 71, 253 },
-                            PasswordSalt = new byte[] { 42, 229, 201, 96, 119, 79, 30, 249, 234, 6, 39, 65, 162, 27, 36, 224, 150, 112, 89, 185, 7, 214, 42, 174, 102, 7, 137, 119, 81, 54, 154, 179, 156, 47, 159, 112, 93, 162, 27, 228, 85, 148, 73, 154, 79, 28, 108, 228, 230, 145, 83, 233, 72, 242, 20, 76, 210, 64, 253, 118, 172, 197, 190, 125, 212, 191, 9, 169, 185, 34, 162, 82, 87, 164, 11, 101, 152, 154, 186, 98, 187, 185, 224, 54, 172, 202, 171, 177, 66, 148, 211, 137, 251, 210, 106, 32, 98, 69, 253, 94, 147, 223, 138, 122, 255, 58, 221, 106, 4, 52, 129, 228, 86, 37, 255, 52, 164, 139, 42, 250, 26, 5, 236, 109, 205, 161, 194, 134 },
+                            Password = new byte[] { 96, 180, 95, 232, 241, 86, 23, 208, 62, 115, 47, 225, 246, 30, 148, 152, 157, 163, 10, 139, 176, 101, 247, 206, 35, 155, 193, 26, 91, 195, 218, 110, 213, 191, 36, 77, 77, 110, 235, 44, 69, 124, 113, 134, 200, 94, 111, 114, 117, 140, 191, 117, 195, 185, 214, 171, 90, 134, 7, 130, 122, 205, 86, 55 },
+                            PasswordSalt = new byte[] { 8, 23, 24, 207, 103, 0, 224, 110, 110, 100, 75, 250, 50, 249, 253, 182, 22, 241, 62, 29, 91, 239, 207, 138, 72, 213, 52, 223, 123, 60, 234, 213, 1, 52, 28, 53, 8, 138, 132, 35, 17, 193, 102, 207, 140, 226, 238, 108, 146, 161, 59, 21, 59, 70, 82, 27, 73, 173, 146, 48, 184, 238, 208, 98, 76, 236, 96, 61, 222, 125, 28, 44, 91, 4, 212, 38, 202, 227, 95, 163, 153, 7, 14, 193, 181, 25, 32, 176, 16, 174, 120, 97, 179, 59, 149, 192, 1, 217, 103, 140, 143, 233, 111, 21, 75, 182, 234, 120, 200, 51, 61, 208, 146, 208, 226, 167, 255, 88, 140, 196, 220, 39, 200, 110, 0, 58, 109, 116 },
                             Rol = "SUPERVISOR",
                             SucursalId = 2
                         },
@@ -11632,8 +11632,8 @@ namespace WendyApp.Server.Migrations
                             UsuarioId = 4,
                             Email = "gh06007@ues.edu.sv",
                             Nickname = "eligarcia",
-                            Password = new byte[] { 123, 221, 62, 86, 10, 33, 58, 211, 138, 186, 150, 13, 115, 248, 202, 163, 182, 248, 246, 29, 164, 61, 5, 133, 223, 119, 142, 49, 26, 158, 124, 179, 30, 81, 248, 223, 82, 69, 212, 81, 117, 33, 233, 133, 101, 196, 83, 17, 142, 237, 237, 157, 206, 144, 207, 202, 72, 165, 196, 193, 86, 97, 71, 253 },
-                            PasswordSalt = new byte[] { 42, 229, 201, 96, 119, 79, 30, 249, 234, 6, 39, 65, 162, 27, 36, 224, 150, 112, 89, 185, 7, 214, 42, 174, 102, 7, 137, 119, 81, 54, 154, 179, 156, 47, 159, 112, 93, 162, 27, 228, 85, 148, 73, 154, 79, 28, 108, 228, 230, 145, 83, 233, 72, 242, 20, 76, 210, 64, 253, 118, 172, 197, 190, 125, 212, 191, 9, 169, 185, 34, 162, 82, 87, 164, 11, 101, 152, 154, 186, 98, 187, 185, 224, 54, 172, 202, 171, 177, 66, 148, 211, 137, 251, 210, 106, 32, 98, 69, 253, 94, 147, 223, 138, 122, 255, 58, 221, 106, 4, 52, 129, 228, 86, 37, 255, 52, 164, 139, 42, 250, 26, 5, 236, 109, 205, 161, 194, 134 },
+                            Password = new byte[] { 96, 180, 95, 232, 241, 86, 23, 208, 62, 115, 47, 225, 246, 30, 148, 152, 157, 163, 10, 139, 176, 101, 247, 206, 35, 155, 193, 26, 91, 195, 218, 110, 213, 191, 36, 77, 77, 110, 235, 44, 69, 124, 113, 134, 200, 94, 111, 114, 117, 140, 191, 117, 195, 185, 214, 171, 90, 134, 7, 130, 122, 205, 86, 55 },
+                            PasswordSalt = new byte[] { 8, 23, 24, 207, 103, 0, 224, 110, 110, 100, 75, 250, 50, 249, 253, 182, 22, 241, 62, 29, 91, 239, 207, 138, 72, 213, 52, 223, 123, 60, 234, 213, 1, 52, 28, 53, 8, 138, 132, 35, 17, 193, 102, 207, 140, 226, 238, 108, 146, 161, 59, 21, 59, 70, 82, 27, 73, 173, 146, 48, 184, 238, 208, 98, 76, 236, 96, 61, 222, 125, 28, 44, 91, 4, 212, 38, 202, 227, 95, 163, 153, 7, 14, 193, 181, 25, 32, 176, 16, 174, 120, 97, 179, 59, 149, 192, 1, 217, 103, 140, 143, 233, 111, 21, 75, 182, 234, 120, 200, 51, 61, 208, 146, 208, 226, 167, 255, 88, 140, 196, 220, 39, 200, 110, 0, 58, 109, 116 },
                             Rol = "SUPERVISOR",
                             SucursalId = 3
                         },
@@ -11642,8 +11642,8 @@ namespace WendyApp.Server.Migrations
                             UsuarioId = 5,
                             Email = "gf18005@ues.edu.sv",
                             Nickname = "efrgomez",
-                            Password = new byte[] { 123, 221, 62, 86, 10, 33, 58, 211, 138, 186, 150, 13, 115, 248, 202, 163, 182, 248, 246, 29, 164, 61, 5, 133, 223, 119, 142, 49, 26, 158, 124, 179, 30, 81, 248, 223, 82, 69, 212, 81, 117, 33, 233, 133, 101, 196, 83, 17, 142, 237, 237, 157, 206, 144, 207, 202, 72, 165, 196, 193, 86, 97, 71, 253 },
-                            PasswordSalt = new byte[] { 42, 229, 201, 96, 119, 79, 30, 249, 234, 6, 39, 65, 162, 27, 36, 224, 150, 112, 89, 185, 7, 214, 42, 174, 102, 7, 137, 119, 81, 54, 154, 179, 156, 47, 159, 112, 93, 162, 27, 228, 85, 148, 73, 154, 79, 28, 108, 228, 230, 145, 83, 233, 72, 242, 20, 76, 210, 64, 253, 118, 172, 197, 190, 125, 212, 191, 9, 169, 185, 34, 162, 82, 87, 164, 11, 101, 152, 154, 186, 98, 187, 185, 224, 54, 172, 202, 171, 177, 66, 148, 211, 137, 251, 210, 106, 32, 98, 69, 253, 94, 147, 223, 138, 122, 255, 58, 221, 106, 4, 52, 129, 228, 86, 37, 255, 52, 164, 139, 42, 250, 26, 5, 236, 109, 205, 161, 194, 134 },
+                            Password = new byte[] { 96, 180, 95, 232, 241, 86, 23, 208, 62, 115, 47, 225, 246, 30, 148, 152, 157, 163, 10, 139, 176, 101, 247, 206, 35, 155, 193, 26, 91, 195, 218, 110, 213, 191, 36, 77, 77, 110, 235, 44, 69, 124, 113, 134, 200, 94, 111, 114, 117, 140, 191, 117, 195, 185, 214, 171, 90, 134, 7, 130, 122, 205, 86, 55 },
+                            PasswordSalt = new byte[] { 8, 23, 24, 207, 103, 0, 224, 110, 110, 100, 75, 250, 50, 249, 253, 182, 22, 241, 62, 29, 91, 239, 207, 138, 72, 213, 52, 223, 123, 60, 234, 213, 1, 52, 28, 53, 8, 138, 132, 35, 17, 193, 102, 207, 140, 226, 238, 108, 146, 161, 59, 21, 59, 70, 82, 27, 73, 173, 146, 48, 184, 238, 208, 98, 76, 236, 96, 61, 222, 125, 28, 44, 91, 4, 212, 38, 202, 227, 95, 163, 153, 7, 14, 193, 181, 25, 32, 176, 16, 174, 120, 97, 179, 59, 149, 192, 1, 217, 103, 140, 143, 233, 111, 21, 75, 182, 234, 120, 200, 51, 61, 208, 146, 208, 226, 167, 255, 88, 140, 196, 220, 39, 200, 110, 0, 58, 109, 116 },
                             Rol = "SUPERVISOR",
                             SucursalId = 4
                         });
