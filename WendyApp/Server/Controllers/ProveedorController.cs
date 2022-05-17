@@ -59,12 +59,17 @@ namespace WendyApp.Server.Controllers
                 }
             }
 
-            var paisesProveedores = await _unitOfWork.PaisesProveedores.Get(q => q.PaisId == sucursal.paisId);
-            var proveedores = await _unitOfWork.Proveedores.GetAll(q => q.ProveedorId == paisesProveedores.ProveedorId, include: q => q.Include(x => x.Paises));
+            var paisesProveedores = await _unitOfWork.PaisesProveedores.GetAll(q => q.PaisId == sucursal.paisId);
+            
+            var proveedores = new List<Proveedor>();
+            foreach (var item in paisesProveedores)
+            {
+                var proveedorLocal = await _unitOfWork.Proveedores.Get(q => q.ProveedorId == item.ProveedorId, include: q => q.Include(x => x.Paises));
+                proveedores.Add(proveedorLocal);
+            }
             var paises = await _unitOfWork.Paises.GetAll();
             var paisesDTO = _mapper.Map<List<PaisDTO>>(paises);
             var result = new List<ReturnProveedorDetailsDTO>();
-
 
             for (int i = 0; i < proveedores.Count; i++)
             {
